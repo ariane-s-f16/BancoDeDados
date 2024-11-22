@@ -20,10 +20,7 @@ namespace BancoDeDados.Views
             InitializeComponent();
         }
 
-        private void Form_cidade_Load(object sender, EventArgs e)
-        {
-
-        }
+       
 
         void limpar() 
         {
@@ -32,14 +29,93 @@ namespace BancoDeDados.Views
             txt_pesquisa.Clear();
             txt_uf.Clear();
         }
-        void carregarnoDGV() 
+        void carregarnoDGV(string pesquisa) 
         {
-            c = new Cidades();
+            c = new Cidades()
             {
                 nome = pesquisa
             };
-            
+            dgvcidade.DataSource = c.consulta();
 
+        }
+        private void Form_cidade_Load(object sender, EventArgs e)
+        {
+            limpar();
+            carregarnoDGV("");
+        }
+
+
+        private void btn_incluir_Click(object sender, EventArgs e)
+        {
+            if(txt_cidade.Text == String.Empty) return;
+
+
+            c = new Cidades()
+            {
+                nome = txt_cidade.Text,
+            uf = txt_uf.Text
+            };
+            c.incluir();
+
+            limpar();
+            carregarnoDGV("");
+
+        }
+
+        private void dgvcidade_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvcidade.Rows.Count > 0) 
+            {
+                txt_cod.Text= dgvcidade.CurrentRow.Cells["id"].Value.ToString();
+                txt_cidade.Text = dgvcidade.CurrentRow.Cells["nome"].Value.ToString();
+                txt_uf.Text = dgvcidade.CurrentRow.Cells["uf"].Value.ToString();
+            }
+        }
+
+        private void btn_alterar_Click(object sender, EventArgs e)
+        {
+            if(txt_cod.Text == String.Empty) return;
+            c = new Cidades()
+            {
+                id = int.Parse(txt_cod.Text),
+                nome = txt_cidade.Text,
+                uf = txt_uf.Text
+            };
+            c.alterar();
+            limpar();
+            carregarnoDGV("");
+        }
+
+        private void btn_excluir_Click(object sender, EventArgs e)
+        {
+            if(txt_cod == "") return;
+
+            if (MessageBox.Show("Deseja excluir a cidade? ", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) 
+            {
+                c = new Cidades()
+                {
+                    id = int.Parse(txt_cod.Text),
+                };
+                c.excluir();
+                limpar();
+                carregarnoDGV("");
+            }
+        }
+
+        private void btn_cancelar_Click(object sender, EventArgs e)
+        {
+            limpar();
+            carregarnoDGV("");
+        }
+
+        private void btn_pesquisa_Click(object sender, EventArgs e)
+        {
+            carregarnoDGV(txt_pesquisa.Text);
+        }
+
+        private void btn_fechar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

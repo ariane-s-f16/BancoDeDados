@@ -55,6 +55,19 @@ namespace BancoDeDados
 
                 comando.ExecuteNonQuery();
 
+                comando = new MySqlCommand("create table if not exists marcas" + "(id int auto_increment primary key," +"marca char (20))", conexao);
+
+                comando.ExecuteNonQuery();
+
+                comando = new MySqlCommand("create table if not exists categorias" + "(id int auto_increment primary key," + "categoria char (20))", conexao);
+
+                comando.ExecuteNonQuery();
+
+                comando = new MySqlCommand("create table if not exists clientes" + "(id int auto_increment primary key," + "nome char (40) not null, " + "id_cidade int, "+ "data_nascimento date, "+ "renda decimal(10,2), "+"cpf char(14), "+ "foto varchar(50), "+ "venda boolean)", conexao);
+
+                comando.ExecuteNonQuery();
+
+
                 fecharconexao();
             }
             catch (Exception e)
@@ -63,7 +76,7 @@ namespace BancoDeDados
             }
         }
 
-
+        
 
 
     }

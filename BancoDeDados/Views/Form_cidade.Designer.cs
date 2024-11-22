@@ -43,6 +43,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvcidade)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,6 +57,7 @@
             this.btn_incluir.TabIndex = 0;
             this.btn_incluir.Text = "INCLUIR";
             this.btn_incluir.UseVisualStyleBackColor = true;
+            this.btn_incluir.Click += new System.EventHandler(this.btn_incluir_Click);
             // 
             // btn_alterar
             // 
@@ -63,6 +67,7 @@
             this.btn_alterar.TabIndex = 1;
             this.btn_alterar.Text = "ALTERAR";
             this.btn_alterar.UseVisualStyleBackColor = true;
+            this.btn_alterar.Click += new System.EventHandler(this.btn_alterar_Click);
             // 
             // btn_cancelar
             // 
@@ -72,6 +77,7 @@
             this.btn_cancelar.TabIndex = 2;
             this.btn_cancelar.Text = "CANCELAR";
             this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
             // btn_excluir
             // 
@@ -81,6 +87,7 @@
             this.btn_excluir.TabIndex = 3;
             this.btn_excluir.Text = "EXCLUIR";
             this.btn_excluir.UseVisualStyleBackColor = true;
+            this.btn_excluir.Click += new System.EventHandler(this.btn_excluir_Click);
             // 
             // btn_fechar
             // 
@@ -90,6 +97,7 @@
             this.btn_fechar.TabIndex = 4;
             this.btn_fechar.Text = "FECHAR";
             this.btn_fechar.UseVisualStyleBackColor = true;
+            this.btn_fechar.Click += new System.EventHandler(this.btn_fechar_Click);
             // 
             // btn_pesquisa
             // 
@@ -99,6 +107,7 @@
             this.btn_pesquisa.TabIndex = 5;
             this.btn_pesquisa.Text = "PESQUISAR";
             this.btn_pesquisa.UseVisualStyleBackColor = true;
+            this.btn_pesquisa.Click += new System.EventHandler(this.btn_pesquisa_Click);
             // 
             // txt_cod
             // 
@@ -131,10 +140,15 @@
             // dgvcidade
             // 
             this.dgvcidade.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvcidade.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.nome,
+            this.uf});
             this.dgvcidade.Location = new System.Drawing.Point(12, 310);
             this.dgvcidade.Name = "dgvcidade";
             this.dgvcidade.Size = new System.Drawing.Size(746, 126);
             this.dgvcidade.TabIndex = 10;
+            this.dgvcidade.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvcidade_CellContentClick);
             // 
             // label1
             // 
@@ -171,6 +185,21 @@
             this.label4.Size = new System.Drawing.Size(204, 13);
             this.label4.TabIndex = 14;
             this.label4.Text = "Digite o nome da Cidade para a pesquisa ";
+            // 
+            // id
+            // 
+            this.id.HeaderText = "id";
+            this.id.Name = "id";
+            // 
+            // nome
+            // 
+            this.nome.HeaderText = "nome";
+            this.nome.Name = "nome";
+            // 
+            // uf
+            // 
+            this.uf.HeaderText = "uf";
+            this.uf.Name = "uf";
             // 
             // Form_cidade
             // 
@@ -218,5 +247,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uf;
     }
 }

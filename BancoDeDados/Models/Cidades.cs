@@ -73,7 +73,7 @@ namespace BancoDeDados.Models
             }
 
         }
-        public void consulta()
+        public  DataTable consulta()
         {
             try
             {
