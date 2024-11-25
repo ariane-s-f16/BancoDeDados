@@ -51,6 +51,79 @@ namespace BancoDeDados.Models
             {
                 MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
+
+         public void Excluir()
+        {
+            try
+            {
+                Banco.AbrirConexao();
+
+                Banco.Comando = new MySqlCommand("DELETE FROM clientes WHERE id = @id", Banco.Conexao);
+                Banco.Comando.Parameters.AddWithValue("@id", Id);
+                Banco.Comando.ExecuteNonQuery();
+
+                Banco.FecharConexao();
+            }
+             catch(Exception e)
+            {
+                MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        public DataTable Consulta()
+        {
+            try
+            {
+                Banco.AbrirConexao();
+
+                Banco.Comando = new MySqlCommand("SELECT cl.*, ci.nome cidade, ci.uf FROM clientes cl" +
+                    "inner join cidades ci ON cl.idCidade = ci.id WHERE cl.nome LIKE ?nome ORDER BY cl.nome", Banco.Conexao);
+                Banco.Comando.Parameters.AddWithValue("@nome", Nome + "%");
+                Banco.Adaptador = new MySqlDataAdapter(Banco.Comando);
+                Banco.datTabela = new DataTable();
+                Banco.Adaptador.Fill(Banco.datTabela);
+
+                return Banco.datTabela;
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }       
+        }
+
+         public void Alterar()
+        {
+            try
+            {
+                Banco.AbrirConexao();
+
+                Banco.AbrirConexao();
+                Banco.Comando = new MySqlCommand("UPDATE clientes SET nome = @nome, id_cidade = @id_cidade, data_nascimento = @data_nascimento," +
+                    "renda = @renda, cpf = @cpf, foto = @foto, venda = @venda WHERE id = @id ", Banco.Conexao);
+
+                Banco.Comando.Parameters.AddWithValue("@nome", Nome);
+                Banco.Comando.Parameters.AddWithValue("@id_cidade", IdCidade);
+                Banco.Comando.Parameters.AddWithValue("@data_nascimento", DataNasc);
+                Banco.Comando.Parameters.AddWithValue("@renda", Renda);
+                Banco.Comando.Parameters.AddWithValue("@cpf", cpf);
+                Banco.Comando.Parameters.AddWithValue("@foto", Foto);
+                Banco.Comando.Parameters.AddWithValue("@venda", Venda);
+                Banco.Comando.Parameters.AddWithValue("@id", Id);
+                Banco.Comando.ExecuteNonQuery();
+
+                Banco.FecharConexao();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+    
+        
+        
     }
 }
