@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BancoDeDados.Views
 {
-    public partial class marca : Form
+    public partial class btn_incluir : Form
     {
-        public marca()
+        public btn_incluir()
         {
             InitializeComponent();
         }

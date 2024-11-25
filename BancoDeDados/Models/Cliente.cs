@@ -54,37 +54,37 @@ namespace BancoDeDados.Models
             
         }
 
-         public void Excluir()
+         public void excluir()
         {
             try
             {
-                Banco.abrirconexao();
+                banco.abrirconexao();
 
-                Banco.comando = new MySqlCommand("DELETE FROM clientes WHERE id = @id", Banco.Conexao);
-                Banco.comando.Parameters.AddWithValue("@id", Id);
-                Banco.comando.ExecuteNonQuery();
+                banco.comando = new MySqlCommand("DELETE FROM clientes WHERE id = @id", banco.conexao);
+                banco.comando.Parameters.AddWithValue("@id", id);
+                banco.comando.ExecuteNonQuery();
 
-                Banco.fecharconexao();
+                banco.fecharconexao();
             }
              catch(Exception e)
             {
                 MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        public DataTable Consulta()
+        public DataTable consulta()
         {
             try
             {
-                Banco.abrirconexao();
+                banco.abrirconexao();
 
-                Banco.comando = new MySqlCommand("SELECT cl.*, ci.nome cidade, ci.uf FROM clientes cl" +
+                banco.comando = new MySqlCommand("SELECT cl.*, ci.nome cidade, ci.uf FROM clientes cl" +
                     "inner join cidades ci ON cl.idCidade = ci.id WHERE cl.nome LIKE ?nome ORDER BY cl.nome", Banco.Conexao);
-                Banco.comando.Parameters.AddWithValue("@nome", Nome + "%");
-                Banco.Adaptador = new MySqlDataAdapter(Banco.Comando);
-                Banco.datTabela = new DataTable();
-                Banco.Adaptador.Fill(Banco.datTabela);
+                banco.comando.Parameters.AddWithValue("@nome", nome + "%");
+                banco.adaptador = new MySqlDataAdapter(banco.comando);
+                banco.dataTable = new DataTable();
+                banco.adaptador.Fill(banco.dataTable);
 
-                return Banco.datTabela;
+                return banco.dataTable;
 
             }
             catch (Exception e)
@@ -94,27 +94,27 @@ namespace BancoDeDados.Models
             }       
         }
 
-         public void Alterar()
+         public void alterar()
         {
             try
             {
-                Banco.abrirconexao();
+                banco.abrirconexao();
 
-                Banco.abrirconexao();
-                Banco.comando = new MySqlCommand("UPDATE clientes SET nome = @nome, id_cidade = @id_cidade, data_nascimento = @data_nascimento," +
-                    "renda = @renda, cpf = @cpf, foto = @foto, venda = @venda WHERE id = @id ", Banco.Conexao);
+                banco.abrirconexao();
+                banco.comando = new MySqlCommand("UPDATE clientes SET nome = @nome, id_cidade = @id_cidade, data_nascimento = @data_nascimento," +
+                    "renda = @renda, cpf = @cpf, foto = @foto, venda = @venda WHERE id = @id ", banco.conexao);
 
-                Banco.comando.Parameters.AddWithValue("@nome", Nome);
-                Banco.comando.Parameters.AddWithValue("@id_cidade", IdCidade);
-                Banco.comando.Parameters.AddWithValue("@data_nascimento", DataNasc);
-                Banco.comando.Parameters.AddWithValue("@renda", Renda);
-                Banco.comando.Parameters.AddWithValue("@cpf", cpf);
-                Banco.comando.Parameters.AddWithValue("@foto", Foto);
-                Banco.comando.Parameters.AddWithValue("@venda", Venda);
-                Banco.comando.Parameters.AddWithValue("@id", Id);
-                Banco.comando.ExecuteNonQuery();
+                banco.comando.Parameters.AddWithValue("@nome", nome);
+                banco.comando.Parameters.AddWithValue("@id_cidade", id_cidade);
+                banco.comando.Parameters.AddWithValue("@data_nascimento", data_nascimento);
+                banco.comando.Parameters.AddWithValue("@renda", renda);
+                banco.comando.Parameters.AddWithValue("@cpf", cpf);
+                banco.comando.Parameters.AddWithValue("@foto", foto);
+                banco.comando.Parameters.AddWithValue("@venda", venda);
+                banco.comando.Parameters.AddWithValue("@id", id);
+                banco.comando.ExecuteNonQuery();
 
-                Banco.fecharconexao();
+                banco.fecharconexao();
             }
             catch (Exception e)
             {
@@ -122,8 +122,33 @@ namespace BancoDeDados.Models
             }
         }
 
-    
-        
-        
+        public DataTable consulta()
+        {
+            try
+            {
+                banco.abrirconexao();
+                banco.comando = new MySqlCommand("select * from cidade set where nome like @nome" + "order by nome", banco.conexao);
+
+                banco.comando.Parameters.AddWithValue("@nome", nome + "%");
+
+                banco.adaptador = new MySqlDataAdapter(banco.comando);
+                banco.dataTable = new DataTable();
+                banco.adaptador.Fill(banco.dataTable);
+
+                banco.fecharconexao();
+
+                return banco.dataTable;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+
+        }
+
+
+
+
     }
 }

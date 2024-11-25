@@ -105,8 +105,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Cidades.cs" />
     <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\marcas.cs" />
+    <Compile Include="Models\vendas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\Caixa.cs">
@@ -169,11 +172,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\Categorias.resx">
+      <DependentUpon>Categorias.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Clientes.resx">
       <DependentUpon>Clientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Form_cidade.resx">
       <DependentUpon>Form_cidade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\marca.resx">
+      <DependentUpon>marca.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
