@@ -58,13 +58,13 @@ namespace BancoDeDados.Models
         {
             try
             {
-                Banco.AbrirConexao();
+                Banco.abrirconexao();
 
-                Banco.Comando = new MySqlCommand("DELETE FROM clientes WHERE id = @id", Banco.Conexao);
-                Banco.Comando.Parameters.AddWithValue("@id", Id);
-                Banco.Comando.ExecuteNonQuery();
+                Banco.comando = new MySqlCommand("DELETE FROM clientes WHERE id = @id", Banco.Conexao);
+                Banco.comando.Parameters.AddWithValue("@id", Id);
+                Banco.comando.ExecuteNonQuery();
 
-                Banco.FecharConexao();
+                Banco.fecharconexao();
             }
              catch(Exception e)
             {
@@ -75,11 +75,11 @@ namespace BancoDeDados.Models
         {
             try
             {
-                Banco.AbrirConexao();
+                Banco.abrirconexao();
 
-                Banco.Comando = new MySqlCommand("SELECT cl.*, ci.nome cidade, ci.uf FROM clientes cl" +
+                Banco.comando = new MySqlCommand("SELECT cl.*, ci.nome cidade, ci.uf FROM clientes cl" +
                     "inner join cidades ci ON cl.idCidade = ci.id WHERE cl.nome LIKE ?nome ORDER BY cl.nome", Banco.Conexao);
-                Banco.Comando.Parameters.AddWithValue("@nome", Nome + "%");
+                Banco.comando.Parameters.AddWithValue("@nome", Nome + "%");
                 Banco.Adaptador = new MySqlDataAdapter(Banco.Comando);
                 Banco.datTabela = new DataTable();
                 Banco.Adaptador.Fill(Banco.datTabela);
@@ -98,23 +98,23 @@ namespace BancoDeDados.Models
         {
             try
             {
-                Banco.AbrirConexao();
+                Banco.abrirconexao();
 
-                Banco.AbrirConexao();
-                Banco.Comando = new MySqlCommand("UPDATE clientes SET nome = @nome, id_cidade = @id_cidade, data_nascimento = @data_nascimento," +
+                Banco.abrirconexao();
+                Banco.comando = new MySqlCommand("UPDATE clientes SET nome = @nome, id_cidade = @id_cidade, data_nascimento = @data_nascimento," +
                     "renda = @renda, cpf = @cpf, foto = @foto, venda = @venda WHERE id = @id ", Banco.Conexao);
 
-                Banco.Comando.Parameters.AddWithValue("@nome", Nome);
-                Banco.Comando.Parameters.AddWithValue("@id_cidade", IdCidade);
-                Banco.Comando.Parameters.AddWithValue("@data_nascimento", DataNasc);
-                Banco.Comando.Parameters.AddWithValue("@renda", Renda);
-                Banco.Comando.Parameters.AddWithValue("@cpf", cpf);
-                Banco.Comando.Parameters.AddWithValue("@foto", Foto);
-                Banco.Comando.Parameters.AddWithValue("@venda", Venda);
-                Banco.Comando.Parameters.AddWithValue("@id", Id);
-                Banco.Comando.ExecuteNonQuery();
+                Banco.comando.Parameters.AddWithValue("@nome", Nome);
+                Banco.comando.Parameters.AddWithValue("@id_cidade", IdCidade);
+                Banco.comando.Parameters.AddWithValue("@data_nascimento", DataNasc);
+                Banco.comando.Parameters.AddWithValue("@renda", Renda);
+                Banco.comando.Parameters.AddWithValue("@cpf", cpf);
+                Banco.comando.Parameters.AddWithValue("@foto", Foto);
+                Banco.comando.Parameters.AddWithValue("@venda", Venda);
+                Banco.comando.Parameters.AddWithValue("@id", Id);
+                Banco.comando.ExecuteNonQuery();
 
-                Banco.FecharConexao();
+                Banco.fecharconexao();
             }
             catch (Exception e)
             {
