@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using vendas.Models;
+
 
 namespace BancoDeDados.Views
 {
@@ -40,7 +40,7 @@ namespace BancoDeDados.Views
             {
                 nome = pesquisa
             };
-            dvg.DataSource = cl.consulta();
+            dvg.DataSource = cl.Consulta();
 
         }
         private void Clientes_Load(object sender, EventArgs e)

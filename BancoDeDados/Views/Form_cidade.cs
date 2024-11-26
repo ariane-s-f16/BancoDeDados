@@ -55,8 +55,8 @@ namespace BancoDeDados.Views
                 nome = txt_cidade.Text,
             uf = txt_uf.Text
             };
-            c.incluir();
 
+            c.incluir();
             limpar();
             carregarnoDGV("");
 
@@ -88,7 +88,7 @@ namespace BancoDeDados.Views
 
         private void btn_excluir_Click(object sender, EventArgs e)
         {
-            if(txt_cod == "") return;
+            if(txt_cod.Text == "") return;
 
             if (MessageBox.Show("Deseja excluir a cidade? ", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes) 
             {

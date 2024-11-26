@@ -21,7 +21,7 @@ namespace BancoDeDados.Models
             try
             {
                 banco.abrirconexao();
-                banco.comando = new MySqlCommand("insert into cidade (nome, uf ) VALUES (@nome, @uf)", banco.conexao);
+                banco.comando = new MySqlCommand("insert into cidades (nome, uf ) VALUES (@nome, @uf)", banco.conexao);
 
                 banco.comando.Parameters.AddWithValue("@nome", nome);
                 banco.comando.Parameters.AddWithValue("@uf", uf);
@@ -40,7 +40,7 @@ namespace BancoDeDados.Models
             try
             {
                 banco.abrirconexao();
-                banco.comando = new MySqlCommand("update cidade set nome = @nome, uf = @uf where id= @id", banco.conexao);
+                banco.comando = new MySqlCommand("update cidades set nome = @nome, uf = @uf where id= @id", banco.conexao);
 
                 banco.comando.Parameters.AddWithValue("@nome", nome);
                 banco.comando.Parameters.AddWithValue("@uf", uf);
@@ -60,7 +60,7 @@ namespace BancoDeDados.Models
             try
             {
                 banco.abrirconexao();
-                banco.comando = new MySqlCommand("delete from cidade where id= @id", banco.conexao);
+                banco.comando = new MySqlCommand("delete from cidades where id= @id", banco.conexao);
 
                 banco.comando.Parameters.AddWithValue("@id", id);
 
@@ -78,7 +78,7 @@ namespace BancoDeDados.Models
             try
             {
                 banco.abrirconexao();
-                banco.comando = new MySqlCommand("select * from cidade set where nome like @nome" + "order by nome", banco.conexao);
+                banco.comando = new MySqlCommand("select * from cidades where nome like @nome order by nome", banco.conexao);
 
                 banco.comando.Parameters.AddWithValue("@nome", nome + "%");
                

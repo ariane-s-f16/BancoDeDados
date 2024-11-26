@@ -43,9 +43,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uf = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvcidade)).BeginInit();
             this.SuspendLayout();
             // 
@@ -111,6 +108,7 @@
             // 
             // txt_cod
             // 
+            this.txt_cod.Enabled = false;
             this.txt_cod.Location = new System.Drawing.Point(12, 43);
             this.txt_cod.Name = "txt_cod";
             this.txt_cod.Size = new System.Drawing.Size(100, 20);
@@ -122,6 +120,7 @@
             this.txt_cidade.Name = "txt_cidade";
             this.txt_cidade.Size = new System.Drawing.Size(593, 20);
             this.txt_cidade.TabIndex = 7;
+            this.txt_cidade.Text = "bnjnkjmk";
             // 
             // txt_uf
             // 
@@ -129,6 +128,7 @@
             this.txt_uf.Name = "txt_uf";
             this.txt_uf.Size = new System.Drawing.Size(100, 20);
             this.txt_uf.TabIndex = 8;
+            this.txt_uf.Text = "hhjuk";
             // 
             // txt_pesquisa
             // 
@@ -139,13 +139,13 @@
             // 
             // dgvcidade
             // 
+            this.dgvcidade.AllowUserToAddRows = false;
+            this.dgvcidade.AllowUserToDeleteRows = false;
+            this.dgvcidade.AllowUserToOrderColumns = true;
             this.dgvcidade.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvcidade.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.nome,
-            this.uf});
             this.dgvcidade.Location = new System.Drawing.Point(12, 310);
             this.dgvcidade.Name = "dgvcidade";
+            this.dgvcidade.ReadOnly = true;
             this.dgvcidade.Size = new System.Drawing.Size(746, 126);
             this.dgvcidade.TabIndex = 10;
             this.dgvcidade.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvcidade_CellContentClick);
@@ -153,7 +153,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 24);
+            this.label1.Location = new System.Drawing.Point(13, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 11;
@@ -185,21 +185,6 @@
             this.label4.Size = new System.Drawing.Size(204, 13);
             this.label4.TabIndex = 14;
             this.label4.Text = "Digite o nome da Cidade para a pesquisa ";
-            // 
-            // id
-            // 
-            this.id.HeaderText = "id";
-            this.id.Name = "id";
-            // 
-            // nome
-            // 
-            this.nome.HeaderText = "nome";
-            this.nome.Name = "nome";
-            // 
-            // uf
-            // 
-            this.uf.HeaderText = "uf";
-            this.uf.Name = "uf";
             // 
             // Form_cidade
             // 
@@ -247,8 +232,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn uf;
     }
 }

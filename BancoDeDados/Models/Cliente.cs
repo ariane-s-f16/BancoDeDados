@@ -78,7 +78,7 @@ namespace BancoDeDados.Models
                 banco.abrirconexao();
 
                 banco.comando = new MySqlCommand("SELECT cl.*, ci.nome cidade, ci.uf FROM clientes cl" +
-                    "inner join cidades ci ON cl.idCidade = ci.id WHERE cl.nome LIKE ?nome ORDER BY cl.nome", Banco.Conexao);
+                    "inner join cidades ci ON cl.id_cidade = ci.id WHERE cl.nome LIKE ?nome ORDER BY cl.nome", banco.conexao);
                 banco.comando.Parameters.AddWithValue("@nome", nome + "%");
                 banco.adaptador = new MySqlDataAdapter(banco.comando);
                 banco.dataTable = new DataTable();
@@ -122,12 +122,12 @@ namespace BancoDeDados.Models
             }
         }
 
-        public DataTable consulta()
+        public DataTable Consulta()
         {
             try
             {
                 banco.abrirconexao();
-                banco.comando = new MySqlCommand("select * from cidade set where nome like @nome" + "order by nome", banco.conexao);
+                banco.comando = new MySqlCommand("select * from clientes set where nome like @nome order by nome", banco.conexao);
 
                 banco.comando.Parameters.AddWithValue("@nome", nome + "%");
 
