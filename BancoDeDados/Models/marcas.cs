@@ -22,7 +22,7 @@ namespace BancoDeDados.Models
                 {
                     banco.abrirconexao();
 
-                    banco.comando = new MySqlCommand("INSERT INTO Marcas (nome) VALUES (@nome)", banco.conexao);
+                    banco.comando = new MySqlCommand("INSERT INTO marcas (nome) VALUES (@nome)", banco.conexao);
 
                     banco.comando.Parameters.AddWithValue("@nome", nome);
 
@@ -86,7 +86,7 @@ namespace BancoDeDados.Models
                     "order by nome", banco.conexao);
 
                 banco.comando.Parameters.AddWithValue("@nome", nome + "%");
-                banco.comando.ExecuteNonQuery();
+                
 
                 banco.adaptador = new MySqlDataAdapter(banco.comando);
                 banco.dataTable = new DataTable();

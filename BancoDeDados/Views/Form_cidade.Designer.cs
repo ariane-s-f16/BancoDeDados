@@ -120,7 +120,6 @@
             this.txt_cidade.Name = "txt_cidade";
             this.txt_cidade.Size = new System.Drawing.Size(593, 20);
             this.txt_cidade.TabIndex = 7;
-            this.txt_cidade.Text = "bnjnkjmk";
             // 
             // txt_uf
             // 
@@ -128,7 +127,6 @@
             this.txt_uf.Name = "txt_uf";
             this.txt_uf.Size = new System.Drawing.Size(100, 20);
             this.txt_uf.TabIndex = 8;
-            this.txt_uf.Text = "hhjuk";
             // 
             // txt_pesquisa
             // 

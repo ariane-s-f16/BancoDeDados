@@ -28,7 +28,7 @@ namespace BancoDeDados.Models
             try
             {
                 banco.abrirconexao();
-                banco.comando = new MySqlCommand("insert into produto (nome, preco, estoque, valorvenda, id_marcas, id_categorias ) VALUES (@nome, @preco, @estoque, @valorvenda, @id_marcas, @id_categorias, @imagem)", banco.conexao);
+                banco.comando = new MySqlCommand("insert into produtos (nome, preco, estoque, valorvenda, id_marcas, id_categorias ) VALUES (@nome, @preco, @estoque, @valorvenda, @id_marcas, @id_categorias, @imagem)", banco.conexao);
 
                 banco.comando.Parameters.AddWithValue("@nome", nome);
                 banco.comando.Parameters.AddWithValue("@preco", preco);
@@ -53,7 +53,7 @@ namespace BancoDeDados.Models
             try
             {
                 banco.abrirconexao();
-                banco.comando = new MySqlCommand("update produto set nome = @nome, uf = @uf where id= @id", banco.conexao);
+                banco.comando = new MySqlCommand("update produtos set nome = @nome, uf = @uf where id= @id", banco.conexao);
 
                 banco.comando.Parameters.AddWithValue("@nome", nome);
                 banco.comando.Parameters.AddWithValue("@estoque", estoque);
@@ -79,7 +79,7 @@ namespace BancoDeDados.Models
             try
             {
                 banco.abrirconexao();
-                banco.comando = new MySqlCommand("delete from produto where id= @id", banco.conexao);
+                banco.comando = new MySqlCommand("delete from produtos where id= @id", banco.conexao);
 
                 banco.comando.Parameters.AddWithValue("@id", id);
 
@@ -98,8 +98,9 @@ namespace BancoDeDados.Models
             {
                 banco.abrirconexao();
 
-                banco.comando = new MySqlCommand("SELECT cl.*, ci.nome marcas, ci.uf FROM categorias cl" +
-                    "inner join cidades ci ON cl.id_cidade = ci.id WHERE cl.nome LIKE ?nome ORDER BY cl.nome", banco.conexao);
+                banco.comando = new MySqlCommand("SELECT P.*, m.marca, c.categoria FROM " +
+                                                    "produtos p inner join marcas m on (m.id = p.id_marcas) " +
+                                                    "inner join categorias c on (c.id = p.id_categorias) ", banco.conexao);
                 banco.comando.Parameters.AddWithValue("@nome", nome + "%");
                 banco.adaptador = new MySqlDataAdapter(banco.comando);
                 banco.dataTable = new DataTable();

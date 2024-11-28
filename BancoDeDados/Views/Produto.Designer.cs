@@ -45,6 +45,10 @@
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_fechar = new System.Windows.Forms.Button();
             this.btn_excluir = new System.Windows.Forms.Button();
+            this.marca = new System.Windows.Forms.Label();
+            this.categoria = new System.Windows.Forms.Label();
+            this.cb_marca = new System.Windows.Forms.ComboBox();
+            this.cb_categoria = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.imagem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
@@ -110,14 +114,14 @@
             // 
             // txtpreco
             // 
-            this.txtpreco.Location = new System.Drawing.Point(323, 120);
+            this.txtpreco.Location = new System.Drawing.Point(313, 120);
             this.txtpreco.Name = "txtpreco";
             this.txtpreco.Size = new System.Drawing.Size(100, 20);
             this.txtpreco.TabIndex = 6;
             // 
             // txtpesquisa
             // 
-            this.txtpesquisa.Location = new System.Drawing.Point(36, 219);
+            this.txtpesquisa.Location = new System.Drawing.Point(76, 356);
             this.txtpesquisa.Name = "txtpesquisa";
             this.txtpesquisa.Size = new System.Drawing.Size(471, 20);
             this.txtpesquisa.TabIndex = 7;
@@ -135,7 +139,7 @@
             this.dgv.AllowUserToDeleteRows = false;
             this.dgv.AllowUserToOrderColumns = true;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv.Location = new System.Drawing.Point(36, 264);
+            this.dgv.Location = new System.Drawing.Point(36, 382);
             this.dgv.Name = "dgv";
             this.dgv.ReadOnly = true;
             this.dgv.Size = new System.Drawing.Size(552, 150);
@@ -143,7 +147,7 @@
             // 
             // btn_incluir
             // 
-            this.btn_incluir.Location = new System.Drawing.Point(36, 188);
+            this.btn_incluir.Location = new System.Drawing.Point(76, 317);
             this.btn_incluir.Name = "btn_incluir";
             this.btn_incluir.Size = new System.Drawing.Size(75, 23);
             this.btn_incluir.TabIndex = 10;
@@ -152,7 +156,7 @@
             // 
             // btn_alterar
             // 
-            this.btn_alterar.Location = new System.Drawing.Point(167, 188);
+            this.btn_alterar.Location = new System.Drawing.Point(224, 317);
             this.btn_alterar.Name = "btn_alterar";
             this.btn_alterar.Size = new System.Drawing.Size(75, 23);
             this.btn_alterar.TabIndex = 11;
@@ -161,7 +165,7 @@
             // 
             // btn_pesquisa
             // 
-            this.btn_pesquisa.Location = new System.Drawing.Point(513, 216);
+            this.btn_pesquisa.Location = new System.Drawing.Point(629, 353);
             this.btn_pesquisa.Name = "btn_pesquisa";
             this.btn_pesquisa.Size = new System.Drawing.Size(75, 23);
             this.btn_pesquisa.TabIndex = 12;
@@ -170,7 +174,7 @@
             // 
             // btn_cancelar
             // 
-            this.btn_cancelar.Location = new System.Drawing.Point(280, 188);
+            this.btn_cancelar.Location = new System.Drawing.Point(362, 317);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(75, 23);
             this.btn_cancelar.TabIndex = 12;
@@ -179,7 +183,7 @@
             // 
             // btn_fechar
             // 
-            this.btn_fechar.Location = new System.Drawing.Point(631, 391);
+            this.btn_fechar.Location = new System.Drawing.Point(629, 509);
             this.btn_fechar.Name = "btn_fechar";
             this.btn_fechar.Size = new System.Drawing.Size(75, 23);
             this.btn_fechar.TabIndex = 13;
@@ -188,18 +192,56 @@
             // 
             // btn_excluir
             // 
-            this.btn_excluir.Location = new System.Drawing.Point(389, 188);
+            this.btn_excluir.Location = new System.Drawing.Point(472, 317);
             this.btn_excluir.Name = "btn_excluir";
             this.btn_excluir.Size = new System.Drawing.Size(75, 23);
             this.btn_excluir.TabIndex = 13;
             this.btn_excluir.Text = "excluir";
             this.btn_excluir.UseVisualStyleBackColor = true;
             // 
+            // marca
+            // 
+            this.marca.AutoSize = true;
+            this.marca.Location = new System.Drawing.Point(31, 179);
+            this.marca.Name = "marca";
+            this.marca.Size = new System.Drawing.Size(36, 13);
+            this.marca.TabIndex = 14;
+            this.marca.Text = "marca";
+            // 
+            // categoria
+            // 
+            this.categoria.AutoSize = true;
+            this.categoria.Location = new System.Drawing.Point(319, 179);
+            this.categoria.Name = "categoria";
+            this.categoria.Size = new System.Drawing.Size(51, 13);
+            this.categoria.TabIndex = 16;
+            this.categoria.Text = "categoria";
+            // 
+            // cb_marca
+            // 
+            this.cb_marca.FormattingEnabled = true;
+            this.cb_marca.Location = new System.Drawing.Point(36, 213);
+            this.cb_marca.Name = "cb_marca";
+            this.cb_marca.Size = new System.Drawing.Size(121, 21);
+            this.cb_marca.TabIndex = 17;
+            // 
+            // cb_categoria
+            // 
+            this.cb_categoria.FormattingEnabled = true;
+            this.cb_categoria.Location = new System.Drawing.Point(302, 213);
+            this.cb_categoria.Name = "cb_categoria";
+            this.cb_categoria.Size = new System.Drawing.Size(121, 21);
+            this.cb_categoria.TabIndex = 18;
+            // 
             // Produto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 670);
+            this.Controls.Add(this.cb_categoria);
+            this.Controls.Add(this.cb_marca);
+            this.Controls.Add(this.categoria);
+            this.Controls.Add(this.marca);
             this.Controls.Add(this.btn_excluir);
             this.Controls.Add(this.btn_fechar);
             this.Controls.Add(this.btn_cancelar);
@@ -246,5 +288,9 @@
         private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.Button btn_fechar;
         private System.Windows.Forms.Button btn_excluir;
+        private System.Windows.Forms.Label marca;
+        private System.Windows.Forms.Label categoria;
+        private System.Windows.Forms.ComboBox cb_marca;
+        private System.Windows.Forms.ComboBox cb_categoria;
     }
 }

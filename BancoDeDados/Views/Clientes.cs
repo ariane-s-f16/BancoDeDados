@@ -40,7 +40,7 @@ namespace BancoDeDados.Views
             {
                 nome = pesquisa
             };
-            dvg.DataSource = cl.Consulta();
+            dvg.DataSource = cl.consulta();
 
         }
         private void Clientes_Load(object sender, EventArgs e)
@@ -84,7 +84,7 @@ namespace BancoDeDados.Views
                 nome = txtnome.Text,
                 id_cidade = (int)cb_cidade.SelectedValue,
                 data_nascimento = data.Value,
-                renda = double.Parse(txtrenda.Text),
+                renda = decimal.Parse(txtrenda.Text),
                 cpf = mask_cpf.Text,
                 foto= imagem.ImageLocation,
                 venda= ck_bloquear.Checked
@@ -122,7 +122,7 @@ namespace BancoDeDados.Views
                 nome = txtnome.Text,
                 id_cidade = (int)cb_cidade.SelectedValue,
                 data_nascimento = data.Value,
-                renda = double.Parse(txtrenda.Text),
+                renda = decimal.Parse(txtrenda.Text),
                 cpf = mask_cpf.Text,
                 foto = imagem.ImageLocation,
                 venda = ck_bloquear.Checked

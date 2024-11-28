@@ -18,7 +18,7 @@ namespace BancoDeDados.Models
         public int id_cidade {  get; set; }
         public DateTime data_nascimento { get; set; }
 
-        public double renda { get; set; }
+        public decimal renda { get; set; }
 
         public string cpf { get; set; }
 
@@ -33,7 +33,7 @@ namespace BancoDeDados.Models
             {
                 banco.abrirconexao();
 
-                banco.comando = new MySqlCommand("Insert into clientes (nome, id_cidade, dat_nascimento, renda, cpf, venda)" + "values (@nome, @id_cidade, @data_nascimento, @renda, @cpf, @foto, @ venda)", banco.conexao);
+                banco.comando = new MySqlCommand("Insert into clientes (nome, id_cidade, dat_nascimento, renda, cpf, venda)" + "values (@nome, @id_cidade, @data_nascimento, @renda, @cpf, @foto, @venda)", banco.conexao);
 
 
                 banco.comando.Parameters.AddWithValue("@nome", nome);
@@ -78,7 +78,7 @@ namespace BancoDeDados.Models
                 banco.abrirconexao();
 
                 banco.comando = new MySqlCommand("SELECT cl.*, ci.nome cidade, ci.uf FROM clientes cl" +
-                    "inner join cidades ci ON cl.id_cidade = ci.id WHERE cl.nome LIKE ?nome ORDER BY cl.nome", banco.conexao);
+                    "inner join cidades ci ON cl.id_cidade = ci.id WHERE cl.nome LIKE @nome ORDER BY cl.nome", banco.conexao);
                 banco.comando.Parameters.AddWithValue("@nome", nome + "%");
                 banco.adaptador = new MySqlDataAdapter(banco.comando);
                 banco.dataTable = new DataTable();
@@ -98,7 +98,7 @@ namespace BancoDeDados.Models
         {
             try
             {
-                banco.abrirconexao();
+               
 
                 banco.abrirconexao();
                 banco.comando = new MySqlCommand("UPDATE clientes SET nome = @nome, id_cidade = @id_cidade, data_nascimento = @data_nascimento," +
@@ -122,30 +122,7 @@ namespace BancoDeDados.Models
             }
         }
 
-        public DataTable Consulta()
-        {
-            try
-            {
-                banco.abrirconexao();
-                banco.comando = new MySqlCommand("select * from clientes set where nome like @nome order by nome", banco.conexao);
-
-                banco.comando.Parameters.AddWithValue("@nome", nome + "%");
-
-                banco.adaptador = new MySqlDataAdapter(banco.comando);
-                banco.dataTable = new DataTable();
-                banco.adaptador.Fill(banco.dataTable);
-
-                banco.fecharconexao();
-
-                return banco.dataTable;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message, "erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null;
-            }
-
-        }
+        
 
 
 
