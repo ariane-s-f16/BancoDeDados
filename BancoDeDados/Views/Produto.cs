@@ -147,6 +147,7 @@ namespace BancoDeDados.Views
             if (cb_categoria.SelectedIndex != -1)
             {
                 DataRowView reg = (DataRowView)cb_categoria.SelectedItem;
+                cb_categoria.Text = reg["id_categoria"].ToString();
 
             }
         }
@@ -156,6 +157,7 @@ namespace BancoDeDados.Views
             if (cb_marca.SelectedIndex != -1)
             {
                 DataRowView reg = (DataRowView)cb_marca.SelectedItem;
+                cb_marca.Text = reg["id_marca"].ToString();
 
             }
         }
