@@ -77,7 +77,7 @@ namespace BancoDeDados.Models
             try
             {
                 banco.abrirconexao();
-                banco.comando = new MySqlCommand("select * from categorias set where nome like @nome order by nome", banco.conexao);
+                banco.comando = new MySqlCommand("select * from categorias where nome like @nome order by nome", banco.conexao);
 
                 banco.comando.Parameters.AddWithValue("@nome", nome + "%");
 
@@ -94,7 +94,6 @@ namespace BancoDeDados.Models
                 MessageBox.Show(e.Message, "erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
-
         }
 
     }
