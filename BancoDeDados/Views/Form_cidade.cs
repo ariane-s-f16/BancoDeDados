@@ -62,15 +62,7 @@ namespace BancoDeDados.Views
 
         }
 
-        private void dgvcidade_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvcidade.Rows.Count > 0) 
-            {
-                txt_cod.Text= dgvcidade.CurrentRow.Cells["id"].Value.ToString();
-                txt_cidade.Text = dgvcidade.CurrentRow.Cells["nome"].Value.ToString();
-                txt_uf.Text = dgvcidade.CurrentRow.Cells["uf"].Value.ToString();
-            }
-        }
+        
 
         private void btn_alterar_Click(object sender, EventArgs e)
         {
@@ -118,6 +110,14 @@ namespace BancoDeDados.Views
             Close();
         }
 
-      
+        private void dgvcidade_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvcidade.Rows.Count > 0)
+            {
+                txt_cod.Text = dgvcidade.CurrentRow.Cells["id"].Value.ToString();
+                txt_cidade.Text = dgvcidade.CurrentRow.Cells["nome"].Value.ToString();
+                txt_uf.Text = dgvcidade.CurrentRow.Cells["uf"].Value.ToString();
+            }
+        }
     }
 }

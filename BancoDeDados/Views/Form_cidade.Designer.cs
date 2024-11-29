@@ -146,7 +146,7 @@
             this.dgvcidade.ReadOnly = true;
             this.dgvcidade.Size = new System.Drawing.Size(746, 126);
             this.dgvcidade.TabIndex = 10;
-            this.dgvcidade.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvcidade_CellContentClick);
+            this.dgvcidade.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvcidade_CellClick);
             // 
             // label1
             // 

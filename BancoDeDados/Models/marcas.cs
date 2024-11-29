@@ -14,7 +14,7 @@ namespace BancoDeDados.Models
         
             public int id { get; set; }
 
-            public string nome { get; set; }
+            public string marca { get; set; }
 
             public void incluir()
             {
@@ -22,9 +22,9 @@ namespace BancoDeDados.Models
                 {
                     banco.abrirconexao();
 
-                    banco.comando = new MySqlCommand("INSERT INTO marcas (nome) VALUES (@nome)", banco.conexao);
+                    banco.comando = new MySqlCommand("INSERT INTO marcas (marca) VALUES (@nome)", banco.conexao);
 
-                    banco.comando.Parameters.AddWithValue("@nome", nome);
+                    banco.comando.Parameters.AddWithValue("@nome", marca);
 
                     banco.comando.ExecuteNonQuery();
 
@@ -43,9 +43,9 @@ namespace BancoDeDados.Models
             {
                 banco.abrirconexao();
 
-                banco.comando = new MySqlCommand("UPDATE marcas SET nome = @nome WHERE id = @id", banco.conexao);
+                banco.comando = new MySqlCommand("UPDATE marcas SET marca = @nome WHERE id = @id", banco.conexao);
 
-                banco.comando.Parameters.AddWithValue("@nome", nome);
+                banco.comando.Parameters.AddWithValue("@nome", marca);
                 banco.comando.Parameters.AddWithValue("@id", id);
 
                 banco.comando.ExecuteNonQuery();
@@ -82,10 +82,10 @@ namespace BancoDeDados.Models
             try
             {
                 banco.abrirconexao();
-                banco.comando = new MySqlCommand("SELECT * FROM marcas WHERE nome like @nome " +
-                    "order by nome", banco.conexao);
+                banco.comando = new MySqlCommand("SELECT * FROM marcas WHERE marca like @nome " +
+                    "order by marca", banco.conexao);
 
-                banco.comando.Parameters.AddWithValue("@nome", nome + "%");
+                banco.comando.Parameters.AddWithValue("@nome", marca + "%");
                 
 
                 banco.adaptador = new MySqlDataAdapter(banco.comando);

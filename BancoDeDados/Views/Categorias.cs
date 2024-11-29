@@ -19,6 +19,7 @@ namespace BancoDeDados.Views
         public Categorias()
         {
             InitializeComponent();
+            carregarnoDGV("");
         }
 
 
@@ -40,21 +41,7 @@ namespace BancoDeDados.Views
 
         }
 
-        private void btn_alterar_Click(object sender, EventArgs e)
-        {
-            if (txtid.Text == "") return;
-
-            ca = new Categoria()
-            {
-                id = int.Parse(txtid.Text),
-                nome = txtnome.Text,
-                
-            };
-
-            ca.alterar();
-            limpar();
-            carregarnoDGV("");
-        }
+        
 
         private void btn_excluir_Click(object sender, EventArgs e)
         {
@@ -88,12 +75,7 @@ namespace BancoDeDados.Views
         {
             carregarnoDGV(txtpesquisa.Text);
         }
-
-
-        private void Categorias_Load(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void btn_alterar_Click_1(object sender, EventArgs e)
         {

@@ -171,7 +171,6 @@
             this.Controls.Add(this.label1);
             this.Name = "marca";
             this.Text = "incluir";
-            this.Load += new System.EventHandler(this.btn_incluir_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

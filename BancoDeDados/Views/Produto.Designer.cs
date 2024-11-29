@@ -30,12 +30,10 @@
         {
             this.id = new System.Windows.Forms.Label();
             this.txtid = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.imagem = new System.Windows.Forms.PictureBox();
             this.txtestoque = new System.Windows.Forms.TextBox();
-            this.txtpreco = new System.Windows.Forms.TextBox();
             this.txtpesquisa = new System.Windows.Forms.TextBox();
             this.txtnome = new System.Windows.Forms.TextBox();
             this.dgv = new System.Windows.Forms.DataGridView();
@@ -49,6 +47,9 @@
             this.categoria = new System.Windows.Forms.Label();
             this.cb_marca = new System.Windows.Forms.ComboBox();
             this.cb_categoria = new System.Windows.Forms.ComboBox();
+            this.txtvalor = new System.Windows.Forms.TextBox();
+            this.valor = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.imagem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.SuspendLayout();
@@ -69,15 +70,6 @@
             this.txtid.Name = "txtid";
             this.txtid.Size = new System.Drawing.Size(100, 20);
             this.txtid.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(320, 91);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "preço";
             // 
             // label3
             // 
@@ -104,6 +96,7 @@
             this.imagem.Size = new System.Drawing.Size(192, 118);
             this.imagem.TabIndex = 4;
             this.imagem.TabStop = false;
+           
             // 
             // txtestoque
             // 
@@ -111,13 +104,6 @@
             this.txtestoque.Name = "txtestoque";
             this.txtestoque.Size = new System.Drawing.Size(100, 20);
             this.txtestoque.TabIndex = 5;
-            // 
-            // txtpreco
-            // 
-            this.txtpreco.Location = new System.Drawing.Point(313, 120);
-            this.txtpreco.Name = "txtpreco";
-            this.txtpreco.Size = new System.Drawing.Size(100, 20);
-            this.txtpreco.TabIndex = 6;
             // 
             // txtpesquisa
             // 
@@ -144,6 +130,7 @@
             this.dgv.ReadOnly = true;
             this.dgv.Size = new System.Drawing.Size(552, 150);
             this.dgv.TabIndex = 8;
+            
             // 
             // btn_incluir
             // 
@@ -153,6 +140,7 @@
             this.btn_incluir.TabIndex = 10;
             this.btn_incluir.Text = "incluir";
             this.btn_incluir.UseVisualStyleBackColor = true;
+           
             // 
             // btn_alterar
             // 
@@ -162,6 +150,7 @@
             this.btn_alterar.TabIndex = 11;
             this.btn_alterar.Text = "alterar";
             this.btn_alterar.UseVisualStyleBackColor = true;
+            
             // 
             // btn_pesquisa
             // 
@@ -171,6 +160,7 @@
             this.btn_pesquisa.TabIndex = 12;
             this.btn_pesquisa.Text = "pesquisar";
             this.btn_pesquisa.UseVisualStyleBackColor = true;
+          
             // 
             // btn_cancelar
             // 
@@ -180,7 +170,7 @@
             this.btn_cancelar.TabIndex = 12;
             this.btn_cancelar.Text = "cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = true;
-            // 
+         
             // btn_fechar
             // 
             this.btn_fechar.Location = new System.Drawing.Point(629, 509);
@@ -189,6 +179,7 @@
             this.btn_fechar.TabIndex = 13;
             this.btn_fechar.Text = "fechar";
             this.btn_fechar.UseVisualStyleBackColor = true;
+            
             // 
             // btn_excluir
             // 
@@ -198,6 +189,7 @@
             this.btn_excluir.TabIndex = 13;
             this.btn_excluir.Text = "excluir";
             this.btn_excluir.UseVisualStyleBackColor = true;
+            
             // 
             // marca
             // 
@@ -211,7 +203,7 @@
             // categoria
             // 
             this.categoria.AutoSize = true;
-            this.categoria.Location = new System.Drawing.Point(319, 179);
+            this.categoria.Location = new System.Drawing.Point(320, 91);
             this.categoria.Name = "categoria";
             this.categoria.Size = new System.Drawing.Size(51, 13);
             this.categoria.TabIndex = 16;
@@ -220,24 +212,48 @@
             // cb_marca
             // 
             this.cb_marca.FormattingEnabled = true;
-            this.cb_marca.Location = new System.Drawing.Point(36, 213);
+            this.cb_marca.Location = new System.Drawing.Point(36, 212);
             this.cb_marca.Name = "cb_marca";
-            this.cb_marca.Size = new System.Drawing.Size(121, 21);
+            this.cb_marca.Size = new System.Drawing.Size(100, 21);
             this.cb_marca.TabIndex = 17;
+           
             // 
             // cb_categoria
             // 
             this.cb_categoria.FormattingEnabled = true;
-            this.cb_categoria.Location = new System.Drawing.Point(302, 213);
+            this.cb_categoria.Location = new System.Drawing.Point(323, 120);
             this.cb_categoria.Name = "cb_categoria";
-            this.cb_categoria.Size = new System.Drawing.Size(121, 21);
+            this.cb_categoria.Size = new System.Drawing.Size(100, 21);
             this.cb_categoria.TabIndex = 18;
+            
+            // 
+            // txtvalor
+            // 
+            this.txtvalor.Location = new System.Drawing.Point(323, 213);
+            this.txtvalor.Name = "txtvalor";
+            this.txtvalor.Size = new System.Drawing.Size(100, 20);
+            this.txtvalor.TabIndex = 19;
+            // 
+            // valor
+            // 
+            this.valor.AutoSize = true;
+            this.valor.Location = new System.Drawing.Point(320, 188);
+            this.valor.Name = "valor";
+            this.valor.Size = new System.Drawing.Size(31, 13);
+            this.valor.TabIndex = 21;
+            this.valor.Text = "Valor";
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Produto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 670);
+            this.Controls.Add(this.valor);
+            this.Controls.Add(this.txtvalor);
             this.Controls.Add(this.cb_categoria);
             this.Controls.Add(this.cb_marca);
             this.Controls.Add(this.categoria);
@@ -251,17 +267,15 @@
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.txtnome);
             this.Controls.Add(this.txtpesquisa);
-            this.Controls.Add(this.txtpreco);
             this.Controls.Add(this.txtestoque);
             this.Controls.Add(this.imagem);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.txtid);
             this.Controls.Add(this.id);
             this.Name = "Produto";
             this.Text = "Produto";
-            this.Load += new System.EventHandler(this.Produto_Load);
+           
             ((System.ComponentModel.ISupportInitialize)(this.imagem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);
@@ -273,12 +287,10 @@
 
         private System.Windows.Forms.Label id;
         private System.Windows.Forms.TextBox txtid;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox imagem;
         private System.Windows.Forms.TextBox txtestoque;
-        private System.Windows.Forms.TextBox txtpreco;
         private System.Windows.Forms.TextBox txtpesquisa;
         private System.Windows.Forms.TextBox txtnome;
         private System.Windows.Forms.DataGridView dgv;
@@ -292,5 +304,8 @@
         private System.Windows.Forms.Label categoria;
         private System.Windows.Forms.ComboBox cb_marca;
         private System.Windows.Forms.ComboBox cb_categoria;
+        private System.Windows.Forms.TextBox txtvalor;
+        private System.Windows.Forms.Label valor;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

@@ -1,14 +1,6 @@
 ﻿using BancoDeDados.Models;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace BancoDeDados.Views
 {
@@ -35,17 +27,13 @@ namespace BancoDeDados.Views
         {
             ma = new marcas()
             {
-                nome = pesquisa
+                marca = pesquisa
             };
             dgv.DataSource = ma.consultar();
 
         }
 
-        private void btn_incluir_Load(object sender, EventArgs e)
-        {
-           
-
-        }
+       
 
         private void btn_alterar_Click(object sender, EventArgs e)
         {
@@ -54,7 +42,7 @@ namespace BancoDeDados.Views
             ma = new marcas()
             {
                 id = int.Parse(txtid.Text),
-                nome = txtnome.Text,
+                marca = txtnome.Text,
 
             };
 
@@ -68,7 +56,7 @@ namespace BancoDeDados.Views
             if (txtnome.Text == "") return;
             ma = new marcas()
             {
-                nome = txtnome.Text
+                marca = txtnome.Text
 
             };
 
@@ -115,7 +103,7 @@ namespace BancoDeDados.Views
             if (dgv.RowCount > 0)
             {
                 txtid.Text = dgv.CurrentRow.Cells["id"].Value.ToString();
-                txtnome.Text = dgv.CurrentRow.Cells["nome"].Value.ToString();
+                txtnome.Text = dgv.CurrentRow.Cells["marca"].Value.ToString();
 
 
             }

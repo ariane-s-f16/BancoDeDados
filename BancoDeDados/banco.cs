@@ -52,24 +52,31 @@ namespace BancoDeDados
 
                 comando.ExecuteNonQuery();
 
-                comando = new MySqlCommand("create table if not exists cidades" + 
-                    "(id int auto_increment primary key,"+" nome varchar (40)," + " uf char (02))", conexao);
+                comando = new MySqlCommand("create table if not exists cidades( " + 
+                    "id int auto_increment primary key, "+" nome varchar (40), " + " uf char (02))", conexao);
 
                 comando.ExecuteNonQuery();
 
-                comando = new MySqlCommand("create table if not exists marcas" + "(id int auto_increment primary key," +"marca varchar (20))", conexao);
+                comando = new MySqlCommand("create table if not exists marcas( " + "id int auto_increment primary key," +"marca varchar (20))", conexao);
 
                 comando.ExecuteNonQuery();
 
-                comando = new MySqlCommand("create table if not exists categorias" + "(id int auto_increment primary key," + "nome varchar (50))", conexao);
+                comando = new MySqlCommand("create table if not exists categorias( " + "id int auto_increment primary key," + "nome varchar (50))", conexao);
 
                 comando.ExecuteNonQuery();
 
-                comando = new MySqlCommand("create table if not exists clientes" + "(id int auto_increment primary key," + "nome char (40) not null, " + "id_cidade int, "+ "data_nascimento date, "+ "renda decimal(10,2), "+"cpf varchar(14), "+ "foto varchar(50), " + "venda boolean)", conexao);
+                comando = new MySqlCommand("create table if not exists clientes ( " + "id int auto_increment primary key," + "nome char (40) not null, " + "id_cidade int, "+ "data_nascimento date, "+ "renda decimal(10,2), "+"cpf varchar(14), "+ "foto varchar(50), " + "venda boolean)", conexao);
 
                 comando.ExecuteNonQuery();
 
-                comando = new MySqlCommand("create table if not exists produtos" + "(id int auto_increment primary key," + "nome char (40) not null, " + "preco int, " + "estoque varchar (50), "  + "foto varchar (100)," + " valorvenda int, " + "id_categorias int, " + " id_marcas int  )" , conexao);
+                comando = new MySqlCommand("create table if not exists produtos(" +
+                    "id int auto_increment primary key, " +
+                    "renda decimal,"+
+                    "id_categoria integer, " +
+                    "id_marca integer, " +
+                    "imagem varchar(100)," +
+                    "estoque int, " +
+                    "valorvenda decimal(10,2))", conexao);
 
                 comando.ExecuteNonQuery();
 

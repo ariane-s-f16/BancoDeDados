@@ -33,7 +33,7 @@ namespace BancoDeDados.Models
             {
                 banco.abrirconexao();
 
-                banco.comando = new MySqlCommand("Insert into clientes (nome, id_cidade, dat_nascimento, renda, cpf, venda)" + "values (@nome, @id_cidade, @data_nascimento, @renda, @cpf, @foto, @venda)", banco.conexao);
+                banco.comando = new MySqlCommand("Insert into clientes (nome, id_cidade, data_nascimento, renda, cpf, venda, foto)" + "values (@nome, @id_cidade, @data_nascimento, @renda, @cpf, @venda, @foto)", banco.conexao);
 
 
                 banco.comando.Parameters.AddWithValue("@nome", nome);
@@ -77,8 +77,7 @@ namespace BancoDeDados.Models
             {
                 banco.abrirconexao();
 
-                banco.comando = new MySqlCommand("SELECT cl.*, ci.nome cidade, ci.uf FROM clientes cl" +
-                    "inner join cidades ci ON cl.id_cidade = ci.id WHERE cl.nome LIKE @nome ORDER BY cl.nome", banco.conexao);
+                banco.comando = new MySqlCommand("SELECT cl.*, ci.nome as cidade FROM clientes cl inner join cidades ci ON ci.nome = cl.id WHERE cl.nome LIKE @nome ORDER BY cl.nome", banco.conexao);
                 banco.comando.Parameters.AddWithValue("@nome", nome + "%");
                 banco.adaptador = new MySqlDataAdapter(banco.comando);
                 banco.dataTable = new DataTable();
@@ -101,8 +100,8 @@ namespace BancoDeDados.Models
                
 
                 banco.abrirconexao();
-                banco.comando = new MySqlCommand("UPDATE clientes SET nome = @nome, id_cidade = @id_cidade, data_nascimento = @data_nascimento," +
-                    "renda = @renda, cpf = @cpf, foto = @foto, venda = @venda WHERE id = @id ", banco.conexao);
+                banco.comando = new MySqlCommand("UPDATE clientes SET nome = @nome, id_cidade= @id_cidade, data_nascimento= @data_nascimento," +
+                    "renda= @renda, cpf= @cpf, foto= @foto, venda= @venda WHERE id = @id ", banco.conexao);
 
                 banco.comando.Parameters.AddWithValue("@nome", nome);
                 banco.comando.Parameters.AddWithValue("@id_cidade", id_cidade);
