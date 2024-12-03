@@ -114,8 +114,10 @@
             // 
             // txtid
             // 
+            this.txtid.Enabled = false;
             this.txtid.Location = new System.Drawing.Point(52, 44);
             this.txtid.Name = "txtid";
+            this.txtid.ReadOnly = true;
             this.txtid.Size = new System.Drawing.Size(100, 20);
             this.txtid.TabIndex = 7;
             // 
@@ -130,6 +132,7 @@
             // 
             // imagem
             // 
+            this.imagem.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.imagem.Location = new System.Drawing.Point(645, 69);
             this.imagem.Name = "imagem";
             this.imagem.Size = new System.Drawing.Size(100, 50);
@@ -148,6 +151,7 @@
             // 
             this.txtuf.Location = new System.Drawing.Point(386, 150);
             this.txtuf.Name = "txtuf";
+            this.txtuf.ReadOnly = true;
             this.txtuf.Size = new System.Drawing.Size(100, 20);
             this.txtuf.TabIndex = 12;
             this.txtuf.Text = "v";
@@ -186,6 +190,7 @@
             // 
             // cb_cidade
             // 
+            this.cb_cidade.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_cidade.FormattingEnabled = true;
             this.cb_cidade.Location = new System.Drawing.Point(52, 150);
             this.cb_cidade.Name = "cb_cidade";
@@ -288,7 +293,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 579);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtrenda);
             this.Controls.Add(this.ck_bloquear);

@@ -20,8 +20,6 @@ namespace BancoDeDados.Views
             InitializeComponent();
         }
 
-       
-
         void limpar() 
         {
             txt_cidade.Clear();
@@ -29,6 +27,7 @@ namespace BancoDeDados.Views
             txt_pesquisa.Clear();
             txt_uf.Clear();
         }
+
         void carregarnoDGV(string pesquisa) 
         {
             c = new Cidades()
@@ -38,12 +37,12 @@ namespace BancoDeDados.Views
             dgvcidade.DataSource = c.consulta();
 
         }
+
         private void Form_cidade_Load(object sender, EventArgs e)
         {
             limpar();
             carregarnoDGV("");
         }
-
 
         private void btn_incluir_Click(object sender, EventArgs e)
         {
@@ -61,8 +60,6 @@ namespace BancoDeDados.Views
             carregarnoDGV("");
 
         }
-
-        
 
         private void btn_alterar_Click(object sender, EventArgs e)
         {

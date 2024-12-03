@@ -15,103 +15,96 @@ namespace BancoDeDados.Views
     public partial class Produto : Form
     {
         Produtos p;
+        marcas m;
+        Categoria c;
         public Produto()
         {
             InitializeComponent();
         }
-        void limpar()
-        {
 
-            txtid.Clear();
-            txtpesquisa.Clear();
+        public void Limpar()
+        {
             txtnome.Clear();
-            imagem.ImageLocation = "";
-
-
+            txtestoque.Clear();
+            txtid.Clear();
+            txtvalor.Clear();
+            cb_categoria.SelectedIndex = -1;
+            cb_marca.SelectedIndex = -1;
         }
 
-        void carregarnoDGV(string pesquisa)
+        public void CarregarnoDGV(string pesquisa)
         {
             p = new Produtos()
             {
-                nome = pesquisa
+               nome = pesquisa
             };
+
             dgv.DataSource = p.consulta();
-
-        }
-        private void Produto_Load(object sender, EventArgs e)
-        {
-
         }
 
-        private void btn_incluir_Click(object sender, EventArgs e)
+        public void btn_incluir_Click(object sender, EventArgs e)
         {
-
             if (txtnome.Text == "") return;
+
             p = new Produtos()
             {
-                nome = txtnome.Text,
-                id_marca = (int)cb_marca.SelectedValue,
-                id_categoria = (int)cb_categoria.SelectedValue,
+                nome= txtnome.Text,
+                imagem = imagem.ImageLocation,
                 estoque = int.Parse(txtestoque.Text),
                 valorvenda = int.Parse(txtvalor.Text),
-                imagem = imagem.ImageLocation,
-
+                id_marcas = (int)cb_marca.SelectedValue,
+                id_categorias = (int)cb_categoria.SelectedValue
             };
-
-
             p.incluir();
-            limpar();
-            carregarnoDGV("");
+
+            Limpar();
+            CarregarnoDGV("");
+
         }
 
-        private void btn_alterar_Click(object sender, EventArgs e)
+        public void btn_alterar_Click(object sender, EventArgs e)
         {
-            if (txtid.Text == "") return;
+            if (txtnome.Text == "") return;
 
             p = new Produtos()
             {
                 id = int.Parse(txtid.Text),
                 nome = txtnome.Text,
-                id_marca = (int)cb_marca.SelectedValue,
-                id_categoria = (int)cb_categoria.SelectedValue,
+                id_categorias = (int)cb_categoria.SelectedValue,
+                id_marcas = (int)cb_marca.SelectedValue,
                 estoque = int.Parse(txtestoque.Text),
-                valorvenda = int.Parse(txtvalor.Text),
-                imagem = imagem.ImageLocation,
+                valorvenda = double.Parse(txtvalor.Text),
+                imagem = imagem.ImageLocation
             };
-
             p.alterar();
-            limpar();
-            carregarnoDGV("");
-        }
 
-        private void btn_cancelar_Click(object sender, EventArgs e)
-        {
-            limpar();
-            carregarnoDGV("");
+            Limpar();
+            CarregarnoDGV("");
         }
 
         private void btn_excluir_Click(object sender, EventArgs e)
         {
+            if (txtnome.Text == "") return;
 
-            if (txtid.Text == "") return;
-
-            if (MessageBox.Show("Deseja excluir cliente? ", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Deseja excluir o cliente?", "Exclusão",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+
                 p = new Produtos()
                 {
-                    id = int.Parse(txtid.Text)
+                    id = int.Parse(txtid.Text),
                 };
-
                 p.excluir();
-                limpar();
-                carregarnoDGV("");
+
+                Limpar();
+                CarregarnoDGV("");
             }
         }
 
-        private void btn_pesquisa_Click(object sender, EventArgs e)
+        private void btn_cancelar_Click(object sender, EventArgs e)
         {
-            carregarnoDGV(txtpesquisa.Text);
+            Limpar();
+            CarregarnoDGV("");
         }
 
         private void btn_fechar_Click(object sender, EventArgs e)
@@ -119,48 +112,49 @@ namespace BancoDeDados.Views
             Close();
         }
 
-        private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void btn_pesquisar_Click(object sender, EventArgs e)
         {
-            if (dgv.RowCount > 0)
+            CarregarnoDGV(txtpesquisa.Text);
+            Limpar();
+        }
+
+        public void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgv.Rows.Count > 0)
             {
                 txtid.Text = dgv.CurrentRow.Cells["id"].Value.ToString();
-                txtnome.Text = dgv.CurrentRow.Cells["nome"].Value.ToString();
+                txtnome.Text= dgv.CurrentRow.Cells["nome"].Value.ToString();
+                cb_marca.Text = dgv.CurrentRow.Cells["id_marcas"].Value.ToString();
+                cb_categoria.Text = dgv.CurrentRow.Cells["id_categorias"].Value.ToString();
                 txtestoque.Text = dgv.CurrentRow.Cells["estoque"].Value.ToString();
-                cb_categoria.Text = dgv.CurrentRow.Cells["id_categoria"].Value.ToString();
-                cb_marca.Text = dgv.CurrentRow.Cells["id_marca"].Value.ToString();
                 txtvalor.Text = dgv.CurrentRow.Cells["valorvenda"].Value.ToString();
-                imagem.ImageLocation = dgv.CurrentRow.Cells["imagem"].Value.ToString();
-
             }
         }
 
-        private void imagem_Click(object sender, EventArgs e)
+       
+
+        private void Produto_Load(object sender, EventArgs e)
         {
-            openFileDialog1.InitialDirectory = "D:/fotos/clientes/";
-            openFileDialog1.FileName = "";
-            openFileDialog1.ShowDialog();
-            imagem.ImageLocation = openFileDialog1.FileName;
+            c = new Categoria();
+            cb_categoria.DataSource = c.consulta();
+            cb_categoria.DisplayMember = "nome";
+            cb_categoria.ValueMember = "id";
+
+            m = new marcas();
+            cb_marca.DataSource = m.consultar();
+            cb_marca.DisplayMember = "nome";
+            cb_marca.ValueMember = "id";
+
+            Limpar();
+           CarregarnoDGV("");
+
+            dgv.Columns["id_categorias"].Visible = false;
+            dgv.Columns["id_marcas"].Visible = false;
+            dgv.Columns["imagem"].Visible = false;
+
         }
 
-        private void cb_categoria_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cb_categoria.SelectedIndex != -1)
-            {
-                DataRowView reg = (DataRowView)cb_categoria.SelectedItem;
-                cb_categoria.Text = reg["id_categoria"].ToString();
-
-            }
-        }
-
-        private void cb_marca_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cb_marca.SelectedIndex != -1)
-            {
-                DataRowView reg = (DataRowView)cb_marca.SelectedItem;
-                cb_marca.Text = reg["id_marca"].ToString();
-
-            }
-        }
+       
     }
 
 }

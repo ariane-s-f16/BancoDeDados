@@ -33,7 +33,7 @@
             this.txtid = new System.Windows.Forms.TextBox();
             this.txtpesquisa = new System.Windows.Forms.TextBox();
             this.txtnome = new System.Windows.Forms.TextBox();
-            this.btn_incluirmarca = new System.Windows.Forms.Button();
+            this.btn_incluir = new System.Windows.Forms.Button();
             this.btn_alterar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_fechar = new System.Windows.Forms.Button();
@@ -82,15 +82,14 @@
             this.txtnome.Size = new System.Drawing.Size(100, 20);
             this.txtnome.TabIndex = 4;
             // 
-            // btn_incluirmarca
+            // btn_incluir
             // 
-            this.btn_incluirmarca.Location = new System.Drawing.Point(106, 262);
-            this.btn_incluirmarca.Name = "btn_incluirmarca";
-            this.btn_incluirmarca.Size = new System.Drawing.Size(75, 23);
-            this.btn_incluirmarca.TabIndex = 5;
-            this.btn_incluirmarca.Text = "incluir";
-            this.btn_incluirmarca.UseVisualStyleBackColor = true;
-            this.btn_incluirmarca.Click += new System.EventHandler(this.btn_incluirmarca_Click);
+            this.btn_incluir.Location = new System.Drawing.Point(106, 262);
+            this.btn_incluir.Name = "btn_incluir";
+            this.btn_incluir.Size = new System.Drawing.Size(75, 23);
+            this.btn_incluir.TabIndex = 5;
+            this.btn_incluir.Text = "incluir";
+            this.btn_incluir.UseVisualStyleBackColor = true;
             // 
             // btn_alterar
             // 
@@ -156,14 +155,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 529);
             this.Controls.Add(this.dgv);
             this.Controls.Add(this.btn_pesquisa);
             this.Controls.Add(this.btn_excluir);
             this.Controls.Add(this.btn_fechar);
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_alterar);
-            this.Controls.Add(this.btn_incluirmarca);
+            this.Controls.Add(this.btn_incluir);
             this.Controls.Add(this.txtnome);
             this.Controls.Add(this.txtpesquisa);
             this.Controls.Add(this.txtid);
@@ -184,7 +183,7 @@
         private System.Windows.Forms.TextBox txtid;
         private System.Windows.Forms.TextBox txtpesquisa;
         private System.Windows.Forms.TextBox txtnome;
-        private System.Windows.Forms.Button btn_incluirmarca;
+        private System.Windows.Forms.Button btn_incluir;
         private System.Windows.Forms.Button btn_alterar;
         private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.Button btn_fechar;

@@ -51,7 +51,7 @@ namespace BancoDeDados.Views
             carregarnoDGV("");
         }
 
-        private void btn_incluirmarca_Click(object sender, EventArgs e)
+        private void btn_incluir_Click(object sender, EventArgs e)
         {
             if (txtnome.Text == "") return;
             ma = new marcas()

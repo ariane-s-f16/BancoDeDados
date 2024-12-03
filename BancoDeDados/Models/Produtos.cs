@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using BancoDeDados.Views;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -14,10 +15,9 @@ namespace BancoDeDados.Models
 
         public int id { get; set; }
         public string nome { get; set; }
-
-        public int valorvenda { get; set; }
-        public int id_marca { get; set; }
-        public int id_categoria { get; set; }
+        public double valorvenda { get; set; }
+        public int id_marcas { get; set; }
+        public int id_categorias { get; set; }
         public int estoque { get; set; }
 
         public string imagem { get; set; }
@@ -27,22 +27,19 @@ namespace BancoDeDados.Models
             try
             {
                 banco.abrirconexao();
-                banco.comando = new MySqlCommand("insert into produtos (nome, estoque, valorvenda, id_marca, id_categoria, imagem ) VALUES (@nome, @estoque, @valorvenda, @id_marca, @id_categoria, @imagem)", banco.conexao);
-
+                banco.comando = new MySqlCommand("INSERT INTO produtos (nome, id_categorias, id_marcas, estoque, valorvenda, imagem) VALUES (@nome, @id_categorias, @id_marcas, @estoque, @valorvenda, @imagem)", banco.conexao);
                 banco.comando.Parameters.AddWithValue("@nome", nome);
+                banco.comando.Parameters.AddWithValue("@id_categorias", id_categorias);
+                banco.comando.Parameters.AddWithValue("@id_marcas", id_marcas);
                 banco.comando.Parameters.AddWithValue("@estoque", estoque);
                 banco.comando.Parameters.AddWithValue("@valorvenda", valorvenda);
-                banco.comando.Parameters.AddWithValue("@id_marcas", id_marca);
-                banco.comando.Parameters.AddWithValue("@id_categorias", id_categoria);
                 banco.comando.Parameters.AddWithValue("@imagem", imagem);
-
-
                 banco.comando.ExecuteNonQuery();
-                banco.fecharconexao();
+                banco.conexao.Close();
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message, "erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -51,13 +48,13 @@ namespace BancoDeDados.Models
             try
             {
                 banco.abrirconexao();
-                banco.comando = new MySqlCommand("update produtos set nome = @nome, uf = @uf where id= @id", banco.conexao);
+                banco.comando = new MySqlCommand("update produtos set nome = @nome, id_categorias = @id_categorias, id_marcas = @id_marcas, estoque = @estoque, valorvenda = @valorvenda, imagem = @imagem where id= @id", banco.conexao);
 
                 banco.comando.Parameters.AddWithValue("@nome", nome);
                 banco.comando.Parameters.AddWithValue("@estoque", estoque);
                 banco.comando.Parameters.AddWithValue("@valorvenda", valorvenda);
-                banco.comando.Parameters.AddWithValue("@id_marcas", id_marca);
-                banco.comando.Parameters.AddWithValue("@id_categorias", id_categoria);
+                banco.comando.Parameters.AddWithValue("@id_marcas", id_marcas);
+                banco.comando.Parameters.AddWithValue("@id_categorias", id_categorias);
                 banco.comando.Parameters.AddWithValue("@imagem", imagem);
                 banco.comando.Parameters.AddWithValue("@id", id);
 
@@ -94,8 +91,8 @@ namespace BancoDeDados.Models
             {
                 banco.abrirconexao();
 
-                banco.comando = new MySqlCommand("SELECT p.*, m.marcas, c.categorias FROM produtos p inner join marcas m on (m.id = p.id_marca) " +
-                                                    "inner join categorias c on (c.id = p.id_categoria) ", banco.conexao);
+                banco.comando = new MySqlCommand("SELECT p.*, c.nome categorias, m.marca marcas FROM produtos p INNER JOIN categorias c on (c.id = p.id_categorias)" +
+                    " INNER JOIN marcas m on (m.id = p.id_marcas) where p.nome like ?nome order by p.nome", banco.conexao);
                 banco.comando.Parameters.AddWithValue("@nome", nome + "%");
                 banco.adaptador = new MySqlDataAdapter(banco.comando);
                 banco.dataTable = new DataTable();

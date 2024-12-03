@@ -41,8 +41,8 @@ namespace BancoDeDados.Models
                 banco.comando.Parameters.AddWithValue("@data_nascimento", data_nascimento);
                 banco.comando.Parameters.AddWithValue("@renda", renda);
                 banco.comando.Parameters.AddWithValue("@cpf", cpf);
-                banco.comando.Parameters.AddWithValue("@venda", venda);
                 banco.comando.Parameters.AddWithValue("@foto", foto);
+                banco.comando.Parameters.AddWithValue("@venda", venda);
 
                 banco.comando.ExecuteNonQuery();
                 banco.conexao.Close();
@@ -77,7 +77,7 @@ namespace BancoDeDados.Models
             {
                 banco.abrirconexao();
 
-                banco.comando = new MySqlCommand("SELECT cl.*, ci.nome as cidade FROM clientes cl inner join cidades ci ON ci.nome = cl.id WHERE cl.nome LIKE @nome ORDER BY cl.nome", banco.conexao);
+                banco.comando = new MySqlCommand("SELECT cl.*, ci.nome cidade, ci.uf FROM clientes cl INNER JOIN cidades ci on (ci.id = cl.id_cidade) where cl.nome like ?nome order by cl.nome", banco.conexao);
                 banco.comando.Parameters.AddWithValue("@nome", nome + "%");
                 banco.adaptador = new MySqlDataAdapter(banco.comando);
                 banco.dataTable = new DataTable();
@@ -97,8 +97,6 @@ namespace BancoDeDados.Models
         {
             try
             {
-               
-
                 banco.abrirconexao();
                 banco.comando = new MySqlCommand("UPDATE clientes SET nome = @nome, id_cidade= @id_cidade, data_nascimento= @data_nascimento," +
                     "renda= @renda, cpf= @cpf, foto= @foto, venda= @venda WHERE id = @id ", banco.conexao);

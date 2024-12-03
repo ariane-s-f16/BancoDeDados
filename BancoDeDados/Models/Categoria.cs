@@ -59,7 +59,7 @@ namespace BancoDeDados.Models
             try
             {
                 banco.abrirconexao();
-                banco.comando = new MySqlCommand("delete from categorias where id= @id", banco.conexao);
+                banco.comando = new MySqlCommand("delete from cidades where id= @id", banco.conexao);
 
                 banco.comando.Parameters.AddWithValue("@id", id);
 

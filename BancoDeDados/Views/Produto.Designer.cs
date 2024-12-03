@@ -68,8 +68,10 @@
             this.txtid.Enabled = false;
             this.txtid.Location = new System.Drawing.Point(36, 57);
             this.txtid.Name = "txtid";
+            this.txtid.ReadOnly = true;
             this.txtid.Size = new System.Drawing.Size(100, 20);
             this.txtid.TabIndex = 1;
+            this.txtid.TabStop = false;
             // 
             // label3
             // 
@@ -91,12 +93,12 @@
             // 
             // imagem
             // 
+            this.imagem.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.imagem.Location = new System.Drawing.Point(530, 22);
             this.imagem.Name = "imagem";
             this.imagem.Size = new System.Drawing.Size(192, 118);
             this.imagem.TabIndex = 4;
             this.imagem.TabStop = false;
-           
             // 
             // txtestoque
             // 
@@ -130,7 +132,7 @@
             this.dgv.ReadOnly = true;
             this.dgv.Size = new System.Drawing.Size(552, 150);
             this.dgv.TabIndex = 8;
-            
+            this.dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellClick);
             // 
             // btn_incluir
             // 
@@ -140,7 +142,7 @@
             this.btn_incluir.TabIndex = 10;
             this.btn_incluir.Text = "incluir";
             this.btn_incluir.UseVisualStyleBackColor = true;
-           
+            this.btn_incluir.Click += new System.EventHandler(this.btn_incluir_Click);
             // 
             // btn_alterar
             // 
@@ -150,7 +152,7 @@
             this.btn_alterar.TabIndex = 11;
             this.btn_alterar.Text = "alterar";
             this.btn_alterar.UseVisualStyleBackColor = true;
-            
+            this.btn_alterar.Click += new System.EventHandler(this.btn_alterar_Click);
             // 
             // btn_pesquisa
             // 
@@ -160,7 +162,7 @@
             this.btn_pesquisa.TabIndex = 12;
             this.btn_pesquisa.Text = "pesquisar";
             this.btn_pesquisa.UseVisualStyleBackColor = true;
-          
+            this.btn_pesquisa.Click += new System.EventHandler(this.btn_pesquisar_Click);
             // 
             // btn_cancelar
             // 
@@ -170,7 +172,8 @@
             this.btn_cancelar.TabIndex = 12;
             this.btn_cancelar.Text = "cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = true;
-         
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
+            // 
             // btn_fechar
             // 
             this.btn_fechar.Location = new System.Drawing.Point(629, 509);
@@ -179,7 +182,7 @@
             this.btn_fechar.TabIndex = 13;
             this.btn_fechar.Text = "fechar";
             this.btn_fechar.UseVisualStyleBackColor = true;
-            
+            this.btn_fechar.Click += new System.EventHandler(this.btn_fechar_Click);
             // 
             // btn_excluir
             // 
@@ -189,7 +192,7 @@
             this.btn_excluir.TabIndex = 13;
             this.btn_excluir.Text = "excluir";
             this.btn_excluir.UseVisualStyleBackColor = true;
-            
+            this.btn_excluir.Click += new System.EventHandler(this.btn_excluir_Click);
             // 
             // marca
             // 
@@ -211,21 +214,21 @@
             // 
             // cb_marca
             // 
+            this.cb_marca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_marca.FormattingEnabled = true;
             this.cb_marca.Location = new System.Drawing.Point(36, 212);
             this.cb_marca.Name = "cb_marca";
             this.cb_marca.Size = new System.Drawing.Size(100, 21);
             this.cb_marca.TabIndex = 17;
-           
             // 
             // cb_categoria
             // 
+            this.cb_categoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_categoria.FormattingEnabled = true;
             this.cb_categoria.Location = new System.Drawing.Point(323, 120);
             this.cb_categoria.Name = "cb_categoria";
             this.cb_categoria.Size = new System.Drawing.Size(100, 21);
             this.cb_categoria.TabIndex = 18;
-            
             // 
             // txtvalor
             // 
@@ -275,7 +278,7 @@
             this.Controls.Add(this.id);
             this.Name = "Produto";
             this.Text = "Produto";
-           
+            this.Load += new System.EventHandler(this.Produto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.imagem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
             this.ResumeLayout(false);

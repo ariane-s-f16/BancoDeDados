@@ -45,19 +45,15 @@ namespace BancoDeDados.Views
 
         private void btn_excluir_Click(object sender, EventArgs e)
         {
-            if (txtid.Text == "") return;
-
-            if (MessageBox.Show("Deseja excluir uma categoria? ", "Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            ca = new Categoria()
             {
-                ca = new Categoria()
-                {
-                    id = int.Parse(txtid.Text)
-                };
+                id = int.Parse(txtid.Text),
+            };
 
-                ca.excluir();
-                limpar();
-                carregarnoDGV("");
-            }
+            ca.excluir();
+
+            limpar();
+            carregarnoDGV("");
         }
 
         private void btn_fechar_Click(object sender, EventArgs e)

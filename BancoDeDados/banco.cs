@@ -24,6 +24,14 @@ namespace BancoDeDados
                 conexao = new MySqlConnection("server=localhost; port=3307; uid=root; pwd=etecjau ");
 
                 conexao.Open();
+                comando = new MySqlCommand("CREATE DATABASE IF NOT EXISTS BancoDeDados;  USE BancoDeDados", conexao);
+
+                comando.ExecuteNonQuery();
+                conexao.Close();
+
+                conexao = new MySqlConnection("server=localhost; port=3307; uid=root; pwd=etecjau; database=BancoDeDados ");
+
+                conexao.Open();
             }
             catch ( Exception e)
             {
@@ -48,9 +56,7 @@ namespace BancoDeDados
             try
             {
                 abrirconexao();
-                comando = new MySqlCommand("CREATE DATABASE IF NOT EXISTS BancoDeDados;  USE BancoDeDados", conexao);
-
-                comando.ExecuteNonQuery();
+                
 
                 comando = new MySqlCommand("create table if not exists cidades( " + 
                     "id int auto_increment primary key, "+" nome varchar (40), " + " uf char (02))", conexao);
@@ -71,9 +77,9 @@ namespace BancoDeDados
 
                 comando = new MySqlCommand("create table if not exists produtos(" +
                     "id int auto_increment primary key, " +
-                    "renda decimal,"+
-                    "id_categoria integer, " +
-                    "id_marca integer, " +
+                    "nome varchar(100)," +
+                    "id_categorias integer, " +
+                    "id_marcas integer, " +
                     "imagem varchar(100)," +
                     "estoque int, " +
                     "valorvenda decimal(10,2))", conexao);
