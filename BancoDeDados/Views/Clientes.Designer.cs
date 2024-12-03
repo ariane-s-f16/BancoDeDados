@@ -36,7 +36,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.txtid = new System.Windows.Forms.TextBox();
             this.dvg = new System.Windows.Forms.DataGridView();
-            this.imagem = new System.Windows.Forms.PictureBox();
             this.txtnome = new System.Windows.Forms.TextBox();
             this.txtuf = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -44,16 +43,17 @@
             this.data = new System.Windows.Forms.DateTimePicker();
             this.mask_cpf = new System.Windows.Forms.MaskedTextBox();
             this.cb_cidade = new System.Windows.Forms.ComboBox();
-            this.btn_incluir = new System.Windows.Forms.Button();
-            this.btn_alterar = new System.Windows.Forms.Button();
-            this.btn_cancelar = new System.Windows.Forms.Button();
-            this.btn_excluir = new System.Windows.Forms.Button();
-            this.btn_fechar = new System.Windows.Forms.Button();
-            this.consultar = new System.Windows.Forms.Button();
             this.ck_bloquear = new System.Windows.Forms.CheckBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.txtrenda = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.consultar = new System.Windows.Forms.Button();
+            this.btn_fechar = new System.Windows.Forms.Button();
+            this.btn_excluir = new System.Windows.Forms.Button();
+            this.btn_cancelar = new System.Windows.Forms.Button();
+            this.btn_alterar = new System.Windows.Forms.Button();
+            this.btn_incluir = new System.Windows.Forms.Button();
+            this.imagem = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dvg)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imagem)).BeginInit();
             this.SuspendLayout();
@@ -130,16 +130,6 @@
             this.dvg.TabIndex = 8;
             this.dvg.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_CellClick);
             // 
-            // imagem
-            // 
-            this.imagem.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.imagem.Location = new System.Drawing.Point(645, 69);
-            this.imagem.Name = "imagem";
-            this.imagem.Size = new System.Drawing.Size(100, 50);
-            this.imagem.TabIndex = 9;
-            this.imagem.TabStop = false;
-            this.imagem.Click += new System.EventHandler(this.imagem_Click);
-            // 
             // txtnome
             // 
             this.txtnome.Location = new System.Drawing.Point(52, 99);
@@ -198,66 +188,6 @@
             this.cb_cidade.TabIndex = 19;
             this.cb_cidade.SelectedIndexChanged += new System.EventHandler(this.cb_cidade_SelectedIndexChanged);
             // 
-            // btn_incluir
-            // 
-            this.btn_incluir.Location = new System.Drawing.Point(58, 266);
-            this.btn_incluir.Name = "btn_incluir";
-            this.btn_incluir.Size = new System.Drawing.Size(75, 23);
-            this.btn_incluir.TabIndex = 20;
-            this.btn_incluir.Text = "Incluir";
-            this.btn_incluir.UseVisualStyleBackColor = true;
-            this.btn_incluir.Click += new System.EventHandler(this.btn_incluir_Click);
-            // 
-            // btn_alterar
-            // 
-            this.btn_alterar.Location = new System.Drawing.Point(176, 266);
-            this.btn_alterar.Name = "btn_alterar";
-            this.btn_alterar.Size = new System.Drawing.Size(75, 23);
-            this.btn_alterar.TabIndex = 21;
-            this.btn_alterar.Text = "alterar";
-            this.btn_alterar.UseVisualStyleBackColor = true;
-            this.btn_alterar.Click += new System.EventHandler(this.btn_alterar_Click);
-            // 
-            // btn_cancelar
-            // 
-            this.btn_cancelar.Location = new System.Drawing.Point(324, 266);
-            this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.Size = new System.Drawing.Size(75, 23);
-            this.btn_cancelar.TabIndex = 22;
-            this.btn_cancelar.Text = "cancelar";
-            this.btn_cancelar.UseVisualStyleBackColor = true;
-            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
-            // 
-            // btn_excluir
-            // 
-            this.btn_excluir.Location = new System.Drawing.Point(476, 266);
-            this.btn_excluir.Name = "btn_excluir";
-            this.btn_excluir.Size = new System.Drawing.Size(75, 23);
-            this.btn_excluir.TabIndex = 23;
-            this.btn_excluir.Text = "excluir";
-            this.btn_excluir.UseVisualStyleBackColor = true;
-            this.btn_excluir.Click += new System.EventHandler(this.btn_excluir_Click);
-            // 
-            // btn_fechar
-            // 
-            this.btn_fechar.Location = new System.Drawing.Point(614, 266);
-            this.btn_fechar.Name = "btn_fechar";
-            this.btn_fechar.Size = new System.Drawing.Size(75, 23);
-            this.btn_fechar.TabIndex = 24;
-            this.btn_fechar.Text = "fechar";
-            this.btn_fechar.UseVisualStyleBackColor = true;
-            this.btn_fechar.Click += new System.EventHandler(this.btn_fechar_Click);
-            // 
-            // consultar
-            // 
-            this.consultar.Location = new System.Drawing.Point(713, 316);
-            this.consultar.Name = "consultar";
-            this.consultar.Size = new System.Drawing.Size(75, 23);
-            this.consultar.TabIndex = 25;
-            this.consultar.Text = "consulta";
-            this.consultar.UseVisualStyleBackColor = true;
-            this.consultar.Click += new System.EventHandler(this.consultar_Click);
-            // 
             // ck_bloquear
             // 
             this.ck_bloquear.AutoSize = true;
@@ -288,6 +218,78 @@
             this.label9.Size = new System.Drawing.Size(34, 13);
             this.label9.TabIndex = 29;
             this.label9.Text = "renda";
+            // 
+            // consultar
+            // 
+            this.consultar.Image = global::BancoDeDados.Properties.Resources.lupa__1_;
+            this.consultar.Location = new System.Drawing.Point(713, 292);
+            this.consultar.Name = "consultar";
+            this.consultar.Size = new System.Drawing.Size(75, 47);
+            this.consultar.TabIndex = 25;
+            this.consultar.UseVisualStyleBackColor = true;
+            this.consultar.Click += new System.EventHandler(this.consultar_Click);
+            // 
+            // btn_fechar
+            // 
+            this.btn_fechar.Image = global::BancoDeDados.Properties.Resources.bandeira1;
+            this.btn_fechar.Location = new System.Drawing.Point(614, 256);
+            this.btn_fechar.Name = "btn_fechar";
+            this.btn_fechar.Size = new System.Drawing.Size(75, 59);
+            this.btn_fechar.TabIndex = 24;
+            this.btn_fechar.UseVisualStyleBackColor = true;
+            this.btn_fechar.Click += new System.EventHandler(this.btn_fechar_Click);
+            // 
+            // btn_excluir
+            // 
+            this.btn_excluir.Image = global::BancoDeDados.Properties.Resources.lixo;
+            this.btn_excluir.Location = new System.Drawing.Point(476, 256);
+            this.btn_excluir.Name = "btn_excluir";
+            this.btn_excluir.Size = new System.Drawing.Size(75, 59);
+            this.btn_excluir.TabIndex = 23;
+            this.btn_excluir.UseVisualStyleBackColor = true;
+            this.btn_excluir.Click += new System.EventHandler(this.btn_excluir_Click);
+            // 
+            // btn_cancelar
+            // 
+            this.btn_cancelar.Image = global::BancoDeDados.Properties.Resources.voltar;
+            this.btn_cancelar.Location = new System.Drawing.Point(324, 256);
+            this.btn_cancelar.Name = "btn_cancelar";
+            this.btn_cancelar.Size = new System.Drawing.Size(75, 59);
+            this.btn_cancelar.TabIndex = 22;
+            this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
+            // 
+            // btn_alterar
+            // 
+            this.btn_alterar.Image = global::BancoDeDados.Properties.Resources.alterar__1_;
+            this.btn_alterar.Location = new System.Drawing.Point(176, 256);
+            this.btn_alterar.Name = "btn_alterar";
+            this.btn_alterar.Size = new System.Drawing.Size(75, 62);
+            this.btn_alterar.TabIndex = 21;
+            this.btn_alterar.UseVisualStyleBackColor = true;
+            this.btn_alterar.Click += new System.EventHandler(this.btn_alterar_Click);
+            // 
+            // btn_incluir
+            // 
+            this.btn_incluir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btn_incluir.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btn_incluir.Image = global::BancoDeDados.Properties.Resources.incluir1;
+            this.btn_incluir.Location = new System.Drawing.Point(58, 256);
+            this.btn_incluir.Name = "btn_incluir";
+            this.btn_incluir.Size = new System.Drawing.Size(78, 62);
+            this.btn_incluir.TabIndex = 20;
+            this.btn_incluir.UseVisualStyleBackColor = true;
+            this.btn_incluir.Click += new System.EventHandler(this.btn_incluir_Click);
+            // 
+            // imagem
+            // 
+            this.imagem.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.imagem.Location = new System.Drawing.Point(550, 28);
+            this.imagem.Name = "imagem";
+            this.imagem.Size = new System.Drawing.Size(195, 91);
+            this.imagem.TabIndex = 9;
+            this.imagem.TabStop = false;
+            this.imagem.Click += new System.EventHandler(this.imagem_Click);
             // 
             // Clientes
             // 

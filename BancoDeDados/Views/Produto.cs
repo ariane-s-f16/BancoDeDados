@@ -25,6 +25,7 @@ namespace BancoDeDados.Views
         public void Limpar()
         {
             txtnome.Clear();
+            txtdescricao.Clear();
             txtestoque.Clear();
             txtid.Clear();
             txtvalor.Clear();
@@ -36,7 +37,7 @@ namespace BancoDeDados.Views
         {
             p = new Produtos()
             {
-               nome = pesquisa
+               descricao = pesquisa
             };
 
             dgv.DataSource = p.consulta();
@@ -44,11 +45,12 @@ namespace BancoDeDados.Views
 
         public void btn_incluir_Click(object sender, EventArgs e)
         {
-            if (txtnome.Text == "") return;
+            if (txtdescricao.Text == "") return;
 
             p = new Produtos()
             {
                 nome= txtnome.Text,
+                descricao = txtdescricao.Text,
                 imagem = imagem.ImageLocation,
                 estoque = int.Parse(txtestoque.Text),
                 valorvenda = int.Parse(txtvalor.Text),
@@ -64,12 +66,13 @@ namespace BancoDeDados.Views
 
         public void btn_alterar_Click(object sender, EventArgs e)
         {
-            if (txtnome.Text == "") return;
+            if (txtdescricao.Text == "") return;
 
             p = new Produtos()
             {
                 id = int.Parse(txtid.Text),
                 nome = txtnome.Text,
+                descricao = txtdescricao.Text,  
                 id_categorias = (int)cb_categoria.SelectedValue,
                 id_marcas = (int)cb_marca.SelectedValue,
                 estoque = int.Parse(txtestoque.Text),
@@ -84,7 +87,7 @@ namespace BancoDeDados.Views
 
         private void btn_excluir_Click(object sender, EventArgs e)
         {
-            if (txtnome.Text == "") return;
+            if (txtid.Text == "") return;
 
             if (MessageBox.Show("Deseja excluir o cliente?", "Exclusão",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -122,6 +125,7 @@ namespace BancoDeDados.Views
         {
             if (dgv.Rows.Count > 0)
             {
+                txtdescricao.Text = dgv.CurrentRow.Cells["descricao"].Value.ToString();
                 txtid.Text = dgv.CurrentRow.Cells["id"].Value.ToString();
                 txtnome.Text= dgv.CurrentRow.Cells["nome"].Value.ToString();
                 cb_marca.Text = dgv.CurrentRow.Cells["id_marcas"].Value.ToString();

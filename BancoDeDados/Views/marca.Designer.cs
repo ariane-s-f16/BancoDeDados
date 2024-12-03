@@ -55,7 +55,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(103, 175);
+            this.label2.Location = new System.Drawing.Point(103, 157);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(33, 13);
             this.label2.TabIndex = 1;
@@ -77,46 +77,48 @@
             // 
             // txtnome
             // 
-            this.txtnome.Location = new System.Drawing.Point(106, 215);
+            this.txtnome.Location = new System.Drawing.Point(106, 191);
             this.txtnome.Name = "txtnome";
             this.txtnome.Size = new System.Drawing.Size(100, 20);
             this.txtnome.TabIndex = 4;
             // 
             // btn_incluir
             // 
-            this.btn_incluir.Location = new System.Drawing.Point(106, 262);
+            this.btn_incluir.Image = global::BancoDeDados.Properties.Resources.incluir1;
+            this.btn_incluir.Location = new System.Drawing.Point(106, 227);
             this.btn_incluir.Name = "btn_incluir";
-            this.btn_incluir.Size = new System.Drawing.Size(75, 23);
+            this.btn_incluir.Size = new System.Drawing.Size(75, 58);
             this.btn_incluir.TabIndex = 5;
-            this.btn_incluir.Text = "incluir";
             this.btn_incluir.UseVisualStyleBackColor = true;
+            this.btn_incluir.Click += new System.EventHandler(this.btn_incluir_Click);
             // 
             // btn_alterar
             // 
             this.btn_alterar.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.btn_alterar.Location = new System.Drawing.Point(277, 262);
+            this.btn_alterar.Image = global::BancoDeDados.Properties.Resources.alterar__1_;
+            this.btn_alterar.Location = new System.Drawing.Point(277, 227);
             this.btn_alterar.Name = "btn_alterar";
-            this.btn_alterar.Size = new System.Drawing.Size(75, 23);
+            this.btn_alterar.Size = new System.Drawing.Size(75, 58);
             this.btn_alterar.TabIndex = 6;
-            this.btn_alterar.Text = "alterar";
             this.btn_alterar.UseVisualStyleBackColor = true;
             this.btn_alterar.Click += new System.EventHandler(this.btn_alterar_Click);
             // 
             // btn_cancelar
             // 
-            this.btn_cancelar.Location = new System.Drawing.Point(422, 262);
+            this.btn_cancelar.Image = global::BancoDeDados.Properties.Resources.voltar;
+            this.btn_cancelar.Location = new System.Drawing.Point(422, 227);
             this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.Size = new System.Drawing.Size(75, 23);
+            this.btn_cancelar.Size = new System.Drawing.Size(75, 58);
             this.btn_cancelar.TabIndex = 7;
-            this.btn_cancelar.Text = "cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = true;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
             // btn_fechar
             // 
-            this.btn_fechar.Location = new System.Drawing.Point(682, 415);
+            this.btn_fechar.Image = global::BancoDeDados.Properties.Resources.bandeira1;
+            this.btn_fechar.Location = new System.Drawing.Point(682, 416);
             this.btn_fechar.Name = "btn_fechar";
-            this.btn_fechar.Size = new System.Drawing.Size(75, 23);
+            this.btn_fechar.Size = new System.Drawing.Size(75, 60);
             this.btn_fechar.TabIndex = 8;
             this.btn_fechar.Text = "fechar";
             this.btn_fechar.UseVisualStyleBackColor = true;
@@ -124,9 +126,10 @@
             // 
             // btn_excluir
             // 
-            this.btn_excluir.Location = new System.Drawing.Point(567, 262);
+            this.btn_excluir.Image = global::BancoDeDados.Properties.Resources.lixo;
+            this.btn_excluir.Location = new System.Drawing.Point(567, 227);
             this.btn_excluir.Name = "btn_excluir";
-            this.btn_excluir.Size = new System.Drawing.Size(75, 23);
+            this.btn_excluir.Size = new System.Drawing.Size(75, 58);
             this.btn_excluir.TabIndex = 9;
             this.btn_excluir.Text = "excluir";
             this.btn_excluir.UseVisualStyleBackColor = true;
@@ -134,11 +137,11 @@
             // 
             // btn_pesquisa
             // 
-            this.btn_pesquisa.Location = new System.Drawing.Point(682, 291);
+            this.btn_pesquisa.Image = global::BancoDeDados.Properties.Resources.lupa__1_;
+            this.btn_pesquisa.Location = new System.Drawing.Point(682, 260);
             this.btn_pesquisa.Name = "btn_pesquisa";
-            this.btn_pesquisa.Size = new System.Drawing.Size(75, 23);
+            this.btn_pesquisa.Size = new System.Drawing.Size(75, 54);
             this.btn_pesquisa.TabIndex = 10;
-            this.btn_pesquisa.Text = "pesquisa";
             this.btn_pesquisa.UseVisualStyleBackColor = true;
             this.btn_pesquisa.Click += new System.EventHandler(this.btn_pesquisa_Click);
             // 

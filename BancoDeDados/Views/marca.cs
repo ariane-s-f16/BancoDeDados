@@ -53,11 +53,13 @@ namespace BancoDeDados.Views
 
         private void btn_incluir_Click(object sender, EventArgs e)
         {
-            if (txtnome.Text == "") return;
+            if (txtnome.Text == String.Empty) return;
+
+
             ma = new marcas()
             {
-                marca = txtnome.Text
-
+                marca = txtnome.Text,
+                
             };
 
             ma.incluir();

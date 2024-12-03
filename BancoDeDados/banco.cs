@@ -82,6 +82,7 @@ namespace BancoDeDados
                     "id_marcas integer, " +
                     "imagem varchar(100)," +
                     "estoque int, " +
+                    "descricao varchar(100)," +
                     "valorvenda decimal(10,2))", conexao);
 
                 comando.ExecuteNonQuery();

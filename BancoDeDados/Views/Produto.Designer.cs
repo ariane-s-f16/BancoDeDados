@@ -32,7 +32,6 @@
             this.txtid = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.imagem = new System.Windows.Forms.PictureBox();
             this.txtestoque = new System.Windows.Forms.TextBox();
             this.txtpesquisa = new System.Windows.Forms.TextBox();
             this.txtnome = new System.Windows.Forms.TextBox();
@@ -50,8 +49,11 @@
             this.txtvalor = new System.Windows.Forms.TextBox();
             this.valor = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            ((System.ComponentModel.ISupportInitialize)(this.imagem)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtdescricao = new System.Windows.Forms.TextBox();
+            this.imagem = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imagem)).BeginInit();
             this.SuspendLayout();
             // 
             // id
@@ -91,15 +93,6 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "estoque";
             // 
-            // imagem
-            // 
-            this.imagem.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.imagem.Location = new System.Drawing.Point(530, 22);
-            this.imagem.Name = "imagem";
-            this.imagem.Size = new System.Drawing.Size(192, 118);
-            this.imagem.TabIndex = 4;
-            this.imagem.TabStop = false;
-            // 
             // txtestoque
             // 
             this.txtestoque.Location = new System.Drawing.Point(323, 57);
@@ -136,59 +129,60 @@
             // 
             // btn_incluir
             // 
-            this.btn_incluir.Location = new System.Drawing.Point(76, 317);
+            this.btn_incluir.Image = global::BancoDeDados.Properties.Resources.incluir1;
+            this.btn_incluir.Location = new System.Drawing.Point(76, 285);
             this.btn_incluir.Name = "btn_incluir";
-            this.btn_incluir.Size = new System.Drawing.Size(75, 23);
+            this.btn_incluir.Size = new System.Drawing.Size(75, 55);
             this.btn_incluir.TabIndex = 10;
-            this.btn_incluir.Text = "incluir";
             this.btn_incluir.UseVisualStyleBackColor = true;
             this.btn_incluir.Click += new System.EventHandler(this.btn_incluir_Click);
             // 
             // btn_alterar
             // 
-            this.btn_alterar.Location = new System.Drawing.Point(224, 317);
+            this.btn_alterar.Image = global::BancoDeDados.Properties.Resources.alterar__1_;
+            this.btn_alterar.Location = new System.Drawing.Point(224, 285);
             this.btn_alterar.Name = "btn_alterar";
-            this.btn_alterar.Size = new System.Drawing.Size(75, 23);
+            this.btn_alterar.Size = new System.Drawing.Size(75, 55);
             this.btn_alterar.TabIndex = 11;
-            this.btn_alterar.Text = "alterar";
             this.btn_alterar.UseVisualStyleBackColor = true;
             this.btn_alterar.Click += new System.EventHandler(this.btn_alterar_Click);
             // 
             // btn_pesquisa
             // 
-            this.btn_pesquisa.Location = new System.Drawing.Point(629, 353);
+            this.btn_pesquisa.Image = global::BancoDeDados.Properties.Resources.lupa__1_;
+            this.btn_pesquisa.Location = new System.Drawing.Point(629, 318);
             this.btn_pesquisa.Name = "btn_pesquisa";
-            this.btn_pesquisa.Size = new System.Drawing.Size(75, 23);
+            this.btn_pesquisa.Size = new System.Drawing.Size(75, 58);
             this.btn_pesquisa.TabIndex = 12;
-            this.btn_pesquisa.Text = "pesquisar";
             this.btn_pesquisa.UseVisualStyleBackColor = true;
             this.btn_pesquisa.Click += new System.EventHandler(this.btn_pesquisar_Click);
             // 
             // btn_cancelar
             // 
-            this.btn_cancelar.Location = new System.Drawing.Point(362, 317);
+            this.btn_cancelar.Image = global::BancoDeDados.Properties.Resources.voltar;
+            this.btn_cancelar.Location = new System.Drawing.Point(362, 285);
             this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.Size = new System.Drawing.Size(75, 23);
+            this.btn_cancelar.Size = new System.Drawing.Size(75, 55);
             this.btn_cancelar.TabIndex = 12;
-            this.btn_cancelar.Text = "cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = true;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
             // btn_fechar
             // 
-            this.btn_fechar.Location = new System.Drawing.Point(629, 509);
+            this.btn_fechar.Image = global::BancoDeDados.Properties.Resources.bandeira;
+            this.btn_fechar.Location = new System.Drawing.Point(629, 462);
             this.btn_fechar.Name = "btn_fechar";
-            this.btn_fechar.Size = new System.Drawing.Size(75, 23);
+            this.btn_fechar.Size = new System.Drawing.Size(75, 70);
             this.btn_fechar.TabIndex = 13;
-            this.btn_fechar.Text = "fechar";
             this.btn_fechar.UseVisualStyleBackColor = true;
             this.btn_fechar.Click += new System.EventHandler(this.btn_fechar_Click);
             // 
             // btn_excluir
             // 
-            this.btn_excluir.Location = new System.Drawing.Point(472, 317);
+            this.btn_excluir.Image = global::BancoDeDados.Properties.Resources.lixo;
+            this.btn_excluir.Location = new System.Drawing.Point(472, 285);
             this.btn_excluir.Name = "btn_excluir";
-            this.btn_excluir.Size = new System.Drawing.Size(75, 23);
+            this.btn_excluir.Size = new System.Drawing.Size(75, 55);
             this.btn_excluir.TabIndex = 13;
             this.btn_excluir.Text = "excluir";
             this.btn_excluir.UseVisualStyleBackColor = true;
@@ -250,11 +244,38 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(192, 243);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 13);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "descricão";
+            // 
+            // txtdescricao
+            // 
+            this.txtdescricao.Location = new System.Drawing.Point(36, 259);
+            this.txtdescricao.Name = "txtdescricao";
+            this.txtdescricao.Size = new System.Drawing.Size(401, 20);
+            this.txtdescricao.TabIndex = 23;
+            // 
+            // imagem
+            // 
+            this.imagem.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.imagem.Location = new System.Drawing.Point(530, 22);
+            this.imagem.Name = "imagem";
+            this.imagem.Size = new System.Drawing.Size(192, 118);
+            this.imagem.TabIndex = 4;
+            this.imagem.TabStop = false;
+            // 
             // Produto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 670);
+            this.Controls.Add(this.txtdescricao);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.valor);
             this.Controls.Add(this.txtvalor);
             this.Controls.Add(this.cb_categoria);
@@ -279,8 +300,8 @@
             this.Name = "Produto";
             this.Text = "Produto";
             this.Load += new System.EventHandler(this.Produto_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.imagem)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imagem)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,5 +331,7 @@
         private System.Windows.Forms.TextBox txtvalor;
         private System.Windows.Forms.Label valor;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtdescricao;
     }
 }

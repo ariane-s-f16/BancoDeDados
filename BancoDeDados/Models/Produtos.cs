@@ -19,6 +19,7 @@ namespace BancoDeDados.Models
         public int id_marcas { get; set; }
         public int id_categorias { get; set; }
         public int estoque { get; set; }
+        public string descricao { get; set; }
 
         public string imagem { get; set; }
 
@@ -27,13 +28,14 @@ namespace BancoDeDados.Models
             try
             {
                 banco.abrirconexao();
-                banco.comando = new MySqlCommand("INSERT INTO produtos (nome, id_categorias, id_marcas, estoque, valorvenda, imagem) VALUES (@nome, @id_categorias, @id_marcas, @estoque, @valorvenda, @imagem)", banco.conexao);
+                banco.comando = new MySqlCommand("INSERT INTO produtos (nome, id_categorias, id_marcas, estoque, valorvenda, imagem, descricao) VALUES (@nome, @id_categorias, @id_marcas, @estoque, @valorvenda, @imagem, @descricao)", banco.conexao);
                 banco.comando.Parameters.AddWithValue("@nome", nome);
                 banco.comando.Parameters.AddWithValue("@id_categorias", id_categorias);
                 banco.comando.Parameters.AddWithValue("@id_marcas", id_marcas);
                 banco.comando.Parameters.AddWithValue("@estoque", estoque);
                 banco.comando.Parameters.AddWithValue("@valorvenda", valorvenda);
                 banco.comando.Parameters.AddWithValue("@imagem", imagem);
+                banco.comando.Parameters.AddWithValue("@descricao", descricao);
                 banco.comando.ExecuteNonQuery();
                 banco.conexao.Close();
             }
@@ -48,7 +50,7 @@ namespace BancoDeDados.Models
             try
             {
                 banco.abrirconexao();
-                banco.comando = new MySqlCommand("update produtos set nome = @nome, id_categorias = @id_categorias, id_marcas = @id_marcas, estoque = @estoque, valorvenda = @valorvenda, imagem = @imagem where id= @id", banco.conexao);
+                banco.comando = new MySqlCommand("update produtos set nome = @nome, id_categorias = @id_categorias, id_marcas = @id_marcas, estoque = @estoque, valorvenda = @valorvenda, imagem = @imagem, descricao= @descricao where id= @id", banco.conexao);
 
                 banco.comando.Parameters.AddWithValue("@nome", nome);
                 banco.comando.Parameters.AddWithValue("@estoque", estoque);
@@ -56,6 +58,7 @@ namespace BancoDeDados.Models
                 banco.comando.Parameters.AddWithValue("@id_marcas", id_marcas);
                 banco.comando.Parameters.AddWithValue("@id_categorias", id_categorias);
                 banco.comando.Parameters.AddWithValue("@imagem", imagem);
+                banco.comando.Parameters.AddWithValue("@descricao", descricao);
                 banco.comando.Parameters.AddWithValue("@id", id);
 
                 banco.comando.ExecuteNonQuery();
@@ -92,8 +95,8 @@ namespace BancoDeDados.Models
                 banco.abrirconexao();
 
                 banco.comando = new MySqlCommand("SELECT p.*, c.nome categorias, m.marca marcas FROM produtos p INNER JOIN categorias c on (c.id = p.id_categorias)" +
-                    " INNER JOIN marcas m on (m.id = p.id_marcas) where p.nome like ?nome order by p.nome", banco.conexao);
-                banco.comando.Parameters.AddWithValue("@nome", nome + "%");
+                    " INNER JOIN marcas m on (m.id = p.id_marcas) where p.nome like ?descricao order by p.descricao", banco.conexao);
+                banco.comando.Parameters.AddWithValue("@descricao", descricao + "%");
                 banco.adaptador = new MySqlDataAdapter(banco.comando);
                 banco.dataTable = new DataTable();
                 banco.adaptador.Fill(banco.dataTable);
