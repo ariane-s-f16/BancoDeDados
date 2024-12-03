@@ -45,7 +45,7 @@ namespace BancoDeDados.Views
 
         public void btn_incluir_Click(object sender, EventArgs e)
         {
-            if (txtdescricao.Text == "") return;
+            if (txtnome.Text == "") return;
 
             p = new Produtos()
             {
@@ -66,7 +66,7 @@ namespace BancoDeDados.Views
 
         public void btn_alterar_Click(object sender, EventArgs e)
         {
-            if (txtdescricao.Text == "") return;
+            if (txtid.Text == "") return;
 
             p = new Produtos()
             {
@@ -89,7 +89,7 @@ namespace BancoDeDados.Views
         {
             if (txtid.Text == "") return;
 
-            if (MessageBox.Show("Deseja excluir o cliente?", "Exclusão",
+            if (MessageBox.Show("Deseja excluir o produto?", "Exclusão",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
 
